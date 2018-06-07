@@ -25,7 +25,7 @@ enum BiometryType {
 final class BiometricAuthHelper {
     
     enum Constants {
-        static let fallbackTitle = "Use Passcode"
+        static let fallbackTitle = ""
         static let reasonString = "To access the secure data"
     }
     

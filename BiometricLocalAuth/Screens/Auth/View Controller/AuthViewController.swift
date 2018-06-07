@@ -21,7 +21,12 @@ class AuthViewController: UIViewController {
     
     
     // MARK: - Outlets
+    
+    
     @IBOutlet weak var biometricAuthButton: UIButton!
+    
+    
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +35,10 @@ class AuthViewController: UIViewController {
         configureBiometricAuthButton()
     }
     
-    func configureBiometricAuthButton() {
+    
+    // MARK: - Private methods
+    
+    private func configureBiometricAuthButton() {
         biometricAuthButton.setTitle(Constants.biometricAuthButtonTitle, for: UIControlState())
         biometricAuthButton.backgroundColor = UIColor.blue
         biometricAuthButton.setTitleColor(UIColor.white, for: UIControlState())
@@ -38,7 +46,6 @@ class AuthViewController: UIViewController {
             .asObservable()
             .bind {
                 BiometricAuthHelper().authenticationWithBiometric(reply: { [weak self] (success, error) in
-                    guard let self = `self` else { return }
                     
                 })
         }
