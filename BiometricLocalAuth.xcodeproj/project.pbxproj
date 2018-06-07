@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5720C91BB9007EA879 /* AppDelegate.swift */; };
-		98F9DB5A20C91BB9007EA879 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5920C91BB9007EA879 /* ViewController.swift */; };
+		98F9DB5A20C91BB9007EA879 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5920C91BB9007EA879 /* AuthViewController.swift */; };
 		98F9DB5D20C91BB9007EA879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB5B20C91BB9007EA879 /* Main.storyboard */; };
 		98F9DB5F20C91BBA007EA879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB5E20C91BBA007EA879 /* Assets.xcassets */; };
 		98F9DB6220C91BBA007EA879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */; };
 		98F9DB6D20C91BBA007EA879 /* BiometricLocalAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB6C20C91BBA007EA879 /* BiometricLocalAuthTests.swift */; };
 		98F9DB7820C91BBA007EA879 /* BiometricLocalAuthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB7720C91BBA007EA879 /* BiometricLocalAuthUITests.swift */; };
+		98F9DB8920C91D1B007EA879 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		98F9DB5420C91BB9007EA879 /* BiometricLocalAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricLocalAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F9DB5720C91BB9007EA879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98F9DB5920C91BB9007EA879 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		98F9DB5920C91BB9007EA879 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		98F9DB5C20C91BB9007EA879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98F9DB5E20C91BBA007EA879 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F9DB6120C91BBA007EA879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		98F9DB7320C91BBA007EA879 /* BiometricLocalAuthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiometricLocalAuthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F9DB7720C91BBA007EA879 /* BiometricLocalAuthUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLocalAuthUITests.swift; sourceTree = "<group>"; };
 		98F9DB7920C91BBA007EA879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F9DB8920C91D1B007EA879 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				98F9DB6B20C91BBA007EA879 /* BiometricLocalAuthTests */,
 				98F9DB7620C91BBA007EA879 /* BiometricLocalAuthUITests */,
 				98F9DB5520C91BB9007EA879 /* Products */,
+				98F9DB8720C91D1B007EA879 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +101,8 @@
 		98F9DB5620C91BB9007EA879 /* BiometricLocalAuth */ = {
 			isa = PBXGroup;
 			children = (
+				98F9DB8A20C91F1D007EA879 /* Screens */,
 				98F9DB5720C91BB9007EA879 /* AppDelegate.swift */,
-				98F9DB5920C91BB9007EA879 /* ViewController.swift */,
 				98F9DB5B20C91BB9007EA879 /* Main.storyboard */,
 				98F9DB5E20C91BBA007EA879 /* Assets.xcassets */,
 				98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */,
@@ -123,6 +127,30 @@
 				98F9DB7920C91BBA007EA879 /* Info.plist */,
 			);
 			path = BiometricLocalAuthUITests;
+			sourceTree = "<group>";
+		};
+		98F9DB8720C91D1B007EA879 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98F9DB8A20C91F1D007EA879 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				98F9DB8B20C91F29007EA879 /* Auth */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		98F9DB8B20C91F29007EA879 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				98F9DB5920C91BB9007EA879 /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98F9DB5A20C91BB9007EA879 /* ViewController.swift in Sources */,
+				98F9DB5A20C91BB9007EA879 /* AuthViewController.swift in Sources */,
 				98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
