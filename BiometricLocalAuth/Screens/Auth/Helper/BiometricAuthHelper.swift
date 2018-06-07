@@ -1,49 +1,72 @@
 //
-//  AuthViewController.swift
+//  BiometricAuthHelper.swift
 //  BiometricLocalAuth
 //
 //  Created by Eugene Lezov on 07.06.2018.
 //  Copyright © 2018 Eugene Lezov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import LocalAuthentication
 
-class AuthViewController: UIViewController {
+public typealias BiometricAuthReply = (Bool, Error?) -> Void
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        authenticationWithTouchID()
+typealias BiometricAuthCheckResult = (Bool, BiometryType, NSError?)
+
+/// Способ авторизации
+///
+/// - touchID: отпечаток пальца
+/// - faceID: слепок лица
+enum BiometryType {
+    case touchID
+    case faceID
+}
+
+final class BiometricAuthHelper {
+    
+    enum Constants {
+        static let fallbackTitle = "Use Passcode"
+        static let reasonString = "To access the secure data"
     }
     
-    func authenticationWithTouchID() {
-        let localAuthenticationContext = LAContext()
-        localAuthenticationContext.localizedFallbackTitle = "Use Passcode"
+    /// Проверка доступности тач/фэйс айди с учетом типа
+    class var applicationCanUseBiometricAuth: BiometricAuthCheckResult {
+        let context = LAContext()
+        var biometryType: BiometryType
+        var error: NSError?
+        let result = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        if #available(iOS 11.0, *) {
+            if result {
+                biometryType = context.biometryType == LABiometryType.faceID ? .faceID : .touchID
+            } else {
+                biometryType = .touchID
+            }
+        } else {
+            biometryType = .touchID
+        }
+        return (result, biometryType, error)
+    }
+    
+    func authenticationWithBiometric(reason: String = Constants.reasonString, reply: @escaping  BiometricAuthReply) {
+        let context = LAContext()
+        context.localizedFallbackTitle = Constants.fallbackTitle
         
         var authError: NSError?
-        let reasonString = "To access the secure data"
         
-        if localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-            
-            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString) { success, evaluateError in
-                
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                                   localizedReason: reason) { success, evaluateError in
                 if success {
-                    
                     //TODO: User authenticated successfully, take appropriate action
-                    
                 } else {
                     //TODO: User did not authenticate successfully, look at error and take appropriate action
                     guard let error = evaluateError else {
                         return
                     }
-                    
                     print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
-                    
                     //TODO: If you have choosen the 'Fallback authentication mechanism selected' (LAError.userFallback). Handle gracefully
-                    
                 }
+                reply (success, evaluateError)
             }
         } else {
             
@@ -126,6 +149,4 @@ class AuthViewController: UIViewController {
         
         return message
     }
-
 }
-
