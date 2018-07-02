@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6E2FDC858EB379DC31E3E691 /* Pods_BiometricLocalAuthUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C92AC7E6CB0AA6D38D35F3A /* Pods_BiometricLocalAuthUITests.framework */; };
+		98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */; };
+		98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */; };
 		98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5720C91BB9007EA879 /* AppDelegate.swift */; };
 		98F9DB5A20C91BB9007EA879 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5920C91BB9007EA879 /* AuthViewController.swift */; };
 		98F9DB5D20C91BB9007EA879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB5B20C91BB9007EA879 /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		6C2113A8598C42B36F2A04C9 /* Pods-BiometricLocalAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuth.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth.release.xcconfig"; sourceTree = "<group>"; };
 		7C2AC3FEBC329BA52C40785E /* Pods-BiometricLocalAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		8B4789B76864B323893C5A44 /* Pods_BiometricLocalAuthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricLocalAuthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowBuilder.swift; sourceTree = "<group>"; };
 		98F9DB5420C91BB9007EA879 /* BiometricLocalAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricLocalAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F9DB5720C91BB9007EA879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98F9DB5920C91BB9007EA879 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98B4E64D20EA7E1700B6BAC1 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				98B4E65020EA7E4200B6BAC1 /* View Controller */,
+			);
+			path = Success;
+			sourceTree = "<group>";
+		};
+		98B4E65020EA7E4200B6BAC1 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		98B4E65120EA81E400B6BAC1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		98F9DB4B20C91BB9007EA879 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +147,7 @@
 		98F9DB5620C91BB9007EA879 /* BiometricLocalAuth */ = {
 			isa = PBXGroup;
 			children = (
+				98B4E65120EA81E400B6BAC1 /* Helper */,
 				98F9DB8A20C91F1D007EA879 /* Screens */,
 				98F9DB5720C91BB9007EA879 /* AppDelegate.swift */,
 				98F9DB5B20C91BB9007EA879 /* Main.storyboard */,
@@ -161,6 +190,7 @@
 		98F9DB8A20C91F1D007EA879 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				98B4E64D20EA7E1700B6BAC1 /* Success */,
 				98F9DB8B20C91F29007EA879 /* Auth */,
 			);
 			path = Screens;
@@ -416,8 +446,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */,
 				98F9DB5A20C91BB9007EA879 /* AuthViewController.swift in Sources */,
 				98F9DB8F20C92191007EA879 /* BiometricAuthHelper.swift in Sources */,
+				98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */,
 				98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

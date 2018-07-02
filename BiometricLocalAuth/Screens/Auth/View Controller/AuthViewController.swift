@@ -13,12 +13,6 @@ import RxCocoa
 
 class AuthViewController: UIViewController {
 
-    // MARK: - Enums
-    
-    enum Constants {
-        static let biometricAuthButtonTitle = "Войти"
-    }
-    
     
     // MARK: - Outlets
     
@@ -39,19 +33,38 @@ class AuthViewController: UIViewController {
     // MARK: - Private methods
     
     private func configureBiometricAuthButton() {
-        biometricAuthButton.setTitle(Constants.biometricAuthButtonTitle, for: UIControlState())
-        biometricAuthButton.backgroundColor = UIColor.blue
-        biometricAuthButton.setTitleColor(UIColor.white, for: UIControlState())
+        
         biometricAuthButton.rx.tap
             .asObservable()
             .bind {
                 BiometricAuthHelper().authenticationWithBiometric(reply: { [weak self] (success, error) in
-                    
+                    if error != nil {
+                        DispatchQueue.main.async {
+                            self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_wrong"), isEnabled: false)
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                            self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "finger"), isEnabled: true)
+                        })
+                    } else {
+                        DispatchQueue.main.async {
+                            self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_success"), isEnabled: false)
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                            self?.setRootAsSuccess()
+                        })
+                    }
                 })
         }
     }
     
+    private func configureBiometricAuthButton(image: UIImage, isEnabled: Bool) {
+        self.biometricAuthButton.setImage(image, for: UIControlState())
+        self.biometricAuthButton.isEnabled = isEnabled
+    }
     
+    func setRootAsSuccess() {
+       WindowBuilder.setVCasRoot(vc: SuccessViewController.self)
+    }
 
 }
 
