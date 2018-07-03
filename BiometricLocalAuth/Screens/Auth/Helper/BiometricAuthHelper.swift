@@ -47,6 +47,26 @@ final class BiometricAuthHelper {
         return (result, biometryType, error)
     }
     
+    
+    // Проверяем, были ли изменены биометрические данные
+    func biometricDateIsValid() -> Bool {
+        let context = LAContext()
+        context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        var result: Bool = true
+        // Получаем сохраненный биометрические данные
+        let oldDomainState = UserDefaultsHelper.biometricDate
+        // Получаем текущие биометрические данные
+        guard let domainState = context.evaluatedPolicyDomainState
+            else { return result }
+        
+        // Сохраняем новые текущие биометрические данные в UserDefaults
+        UserDefaultsHelper.biometricDate = domainState
+        
+        result = (domainState == oldDomainState || oldDomainState == nil)
+        
+        return result
+    }
+    
     func authenticationWithBiometric(reason: String = Constants.reasonString, reply: @escaping  BiometricAuthReply) {
         let context = LAContext()
         context.localizedFallbackTitle = Constants.fallbackTitle
@@ -55,15 +75,17 @@ final class BiometricAuthHelper {
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                                   localizedReason: reason) { success, evaluateError in
+                                   localizedReason: reason) { [weak self] success, evaluateError in
+                // Проверяем, прошла ли успешно авторизация
                 if success {
-                    //TODO: User authenticated successfully, take appropriate action
+                    
+                   
                 } else {
                     //TODO: User did not authenticate successfully, look at error and take appropriate action
                     guard let error = evaluateError else {
                         return
                     }
-                    print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
+                    print(self?.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
                     //TODO: If you have choosen the 'Fallback authentication mechanism selected' (LAError.userFallback). Handle gracefully
                 }
                 reply (success, evaluateError)
@@ -75,6 +97,7 @@ final class BiometricAuthHelper {
             }
             //TODO: Show appropriate alert if biometry/TouchID/FaceID is lockout or not enrolled
             print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
+            reply (false, error)
         }
     }
     

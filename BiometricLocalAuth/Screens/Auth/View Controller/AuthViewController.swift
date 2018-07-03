@@ -10,6 +10,7 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import NotificationBannerSwift
 
 class AuthViewController: UIViewController {
 
@@ -37,8 +38,16 @@ class AuthViewController: UIViewController {
         biometricAuthButton.rx.tap
             .asObservable()
             .bind {
-                BiometricAuthHelper().authenticationWithBiometric(reply: { [weak self] (success, error) in
-                    if error != nil {
+                let biometricAuthHelper = BiometricAuthHelper()
+                biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (success, error) in
+                    guard biometricAuthHelper.biometricDateIsValid()
+                        else {
+                            self?.showErrorNotification(title: "You biometric data was changed", subtitle: "Be carefull")
+                            return
+                    }
+                    if let error = error {
+                        let messageError = biometricAuthHelper.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code)
+                        self?.showErrorNotification(title: "Auth Failed", subtitle: messageError)
                         DispatchQueue.main.async {
                             self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_wrong"), isEnabled: false)
                         }
@@ -46,6 +55,7 @@ class AuthViewController: UIViewController {
                             self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "finger"), isEnabled: true)
                         })
                     } else {
+                        
                         DispatchQueue.main.async {
                             self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_success"), isEnabled: false)
                         }
@@ -64,6 +74,11 @@ class AuthViewController: UIViewController {
     
     func setRootAsSuccess() {
        WindowBuilder.setVCasRoot(vc: SuccessViewController.self)
+    }
+    
+    private func showErrorNotification(title: String, subtitle: String, style: BannerStyle = .danger) {
+        let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
+        banner.show()
     }
 
 }
