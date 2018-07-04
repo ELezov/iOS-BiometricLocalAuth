@@ -11,12 +11,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NotificationBannerSwift
+import LocalAuthentication
 
 class AuthViewController: UIViewController {
 
+    // MARK: - Private
+    
+    private var alertHelper: AlertHelper!
+    private var biometricAuthHelper: BiometricAuthHelper!
+    
     
     // MARK: - Outlets
-    
     
     @IBOutlet weak var biometricAuthButton: UIButton!
     
@@ -25,8 +30,8 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        alertHelper = AlertHelper(presenter: self)
+        biometricAuthHelper = BiometricAuthHelper()
         configureBiometricAuthButton()
     }
     
@@ -37,34 +42,27 @@ class AuthViewController: UIViewController {
         
         biometricAuthButton.rx.tap
             .asObservable()
-            .bind {
-                let biometricAuthHelper = BiometricAuthHelper()
-                biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (success, error) in
-                    guard biometricAuthHelper.biometricDateIsValid()
-                        else {
-                            self?.showErrorNotification(title: "You biometric data was changed", subtitle: "Be carefull")
-                            return
-                    }
+            .bind { [weak self] in
+                self?.biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (success, error) in
+                    guard let `self` = self else { return }
+                    
                     if let error = error {
-                        let messageError = biometricAuthHelper.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code)
-                        self?.showErrorNotification(title: "Auth Failed", subtitle: messageError)
-                        DispatchQueue.main.async {
-                            self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_wrong"), isEnabled: false)
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                            self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "finger"), isEnabled: true)
-                        })
+    
+                        self.handleError(error: error)
                     } else {
-                        
+                        // Отслеживаем изменение биометрических данных
+                        self.handleChangeBiometricDate()
+        
                         DispatchQueue.main.async {
-                            self?.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_success"), isEnabled: false)
+                            self.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_success"), isEnabled: false)
                         }
+                        
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                            self?.setRootAsSuccess()
+                            self.setRootAsSuccess()
                         })
                     }
                 })
-        }
+            }
     }
     
     private func configureBiometricAuthButton(image: UIImage, isEnabled: Bool) {
@@ -77,9 +75,47 @@ class AuthViewController: UIViewController {
     }
     
     private func showErrorNotification(title: String, subtitle: String, style: BannerStyle = .danger) {
-        let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
-        banner.show()
+        DispatchQueue.main.async {
+            let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
+            banner.duration = 3.0
+            banner.show()
+        }
     }
-
+    
+    private func handleError(error: Error) {
+        let messageError = biometricAuthHelper.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code)
+        let errorCode = error._code
+        if #available(iOS 11.0, *) {
+            if [LAError.biometryLockout.rawValue,
+                LAError.biometryNotAvailable.rawValue,
+                LAError.biometryNotEnrolled.rawValue].contains(where: { $0 == errorCode }) {
+                    self.alertHelper.showAlertToDeviceSettings(errorMessage: messageError)
+            } else {
+                self.showErrorNotification(title: "Auth Failed", subtitle: messageError)
+            }
+        } else {
+            if [LAError.touchIDLockout.rawValue,
+                LAError.touchIDNotAvailable.rawValue,
+                LAError.touchIDNotEnrolled.rawValue].contains(where: { $0 == errorCode }) {
+                    self.alertHelper.showAlertToDeviceSettings(errorMessage: messageError)
+            } else {
+                self.showErrorNotification(title: "Auth Failed", subtitle: messageError)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_wrong"), isEnabled: false)
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+            self.configureBiometricAuthButton(image: #imageLiteral(resourceName: "finger"), isEnabled: true)
+        })
+    }
+    
+    private func handleChangeBiometricDate() {
+        // Проверка на изменение данных
+        if !self.biometricAuthHelper.biometricDateIsValid() {
+            self.showErrorNotification(title: "You biometric data was changed", subtitle: "Be carefull", style: .warning)
+        }
+    }
 }
 

@@ -70,24 +70,15 @@ final class BiometricAuthHelper {
     func authenticationWithBiometric(reason: String = Constants.reasonString, reply: @escaping  BiometricAuthReply) {
         let context = LAContext()
         context.localizedFallbackTitle = Constants.fallbackTitle
+        /* URL: https://developer.apple.com/documentation/localauthentication/lacontext/1622329-touchidauthenticationallowablere */
+        // для технологии "быстрого входа", работает лишь с TouchId
+        context.touchIDAuthenticationAllowableReuseDuration = 30
         
         var authError: NSError?
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                                   localizedReason: reason) { [weak self] success, evaluateError in
-                // Проверяем, прошла ли успешно авторизация
-                if success {
-                    
-                   
-                } else {
-                    //TODO: User did not authenticate successfully, look at error and take appropriate action
-                    guard let error = evaluateError else {
-                        return
-                    }
-                    print(self?.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
-                    //TODO: If you have choosen the 'Fallback authentication mechanism selected' (LAError.userFallback). Handle gracefully
-                }
+                                   localizedReason: reason) { success, evaluateError in
                 reply (success, evaluateError)
             }
         } else {
@@ -96,7 +87,6 @@ final class BiometricAuthHelper {
                 return
             }
             //TODO: Show appropriate alert if biometry/TouchID/FaceID is lockout or not enrolled
-            print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
             reply (false, error)
         }
     }
