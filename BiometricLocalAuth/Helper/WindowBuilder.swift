@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class WindowBuilder {
-    
-    static func setVCasRoot(vc: AnyClass) {
+    static func setVCasRoot(viewController: AnyClass) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: String(describing: vc.self))
+        let className = String(describing: viewController.self)
+        let initialViewController = storyboard
+                                        .instantiateViewController(withIdentifier: className)
         UIApplication.shared.keyWindow?.rootViewController = initialViewController
     }
 }

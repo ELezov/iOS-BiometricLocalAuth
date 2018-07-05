@@ -17,6 +17,6 @@ class SuccessViewController: UIViewController {
     }
 
     @IBAction func actionButtonTapped(_ sender: Any) {
-        WindowBuilder.setVCasRoot(vc: AuthViewController.self)
+        WindowBuilder.setVCasRoot(viewController: AuthViewController.self)
     }
 }

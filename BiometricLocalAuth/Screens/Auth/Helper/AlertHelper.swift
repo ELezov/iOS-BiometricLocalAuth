@@ -28,14 +28,11 @@ class AlertHelper {
         let toSettingsAction = UIAlertAction(
             title: Constants.toSettings,
             style: .default,
-            handler: { action in
+            handler: { _ in
                 URLSchemeHelper.showDeviceSettings()
         })
-        
         alert.addAction(toSettingsAction)
-        
         alert.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: nil))
-        
         presenter.present(alert, animated: true, completion: nil)
     }
     

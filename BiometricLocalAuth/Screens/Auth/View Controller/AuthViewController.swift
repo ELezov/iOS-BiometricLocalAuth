@@ -20,11 +20,9 @@ class AuthViewController: UIViewController {
     private var alertHelper: AlertHelper!
     private var biometricAuthHelper: BiometricAuthHelper!
     
-    
     // MARK: - Outlets
     
     @IBOutlet weak var biometricAuthButton: UIButton!
-    
     
     // MARK: - LifeCycle
     
@@ -35,28 +33,22 @@ class AuthViewController: UIViewController {
         configureBiometricAuthButton()
     }
     
-    
     // MARK: - Private methods
     
     private func configureBiometricAuthButton() {
-        
         biometricAuthButton.rx.tap
             .asObservable()
             .bind { [weak self] in
-                self?.biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (success, error) in
+                self?.biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (_, error) in
                     guard let `self` = self else { return }
-                    
                     if let error = error {
-    
                         self.handleError(error: error)
                     } else {
                         // Отслеживаем изменение биометрических данных
                         self.handleChangeBiometricDate()
-        
                         DispatchQueue.main.async {
                             self.configureBiometricAuthButton(image: Asset.fingerprintSuccess.image, isEnabled: false)
                         }
-                        
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
                             self.setRootAsSuccess()
                         })
@@ -68,10 +60,6 @@ class AuthViewController: UIViewController {
     private func configureBiometricAuthButton(image: UIImage, isEnabled: Bool) {
         self.biometricAuthButton.setImage(image, for: UIControlState())
         self.biometricAuthButton.isEnabled = isEnabled
-    }
-    
-    func setRootAsSuccess() {
-       WindowBuilder.setVCasRoot(vc: SuccessViewController.self)
     }
     
     private func showErrorNotification(title: String, subtitle: String, style: BannerStyle = .danger) {
@@ -102,7 +90,6 @@ class AuthViewController: UIViewController {
                 self.showErrorNotification(title: "Auth Failed", subtitle: messageError)
             }
         }
-        
         DispatchQueue.main.async {
             self.configureBiometricAuthButton(image: Asset.fingerprintWrong.image, isEnabled: false)
         }
@@ -114,8 +101,13 @@ class AuthViewController: UIViewController {
     private func handleChangeBiometricDate() {
         // Проверка на изменение данных
         if !self.biometricAuthHelper.biometricDateIsValid() {
-            self.showErrorNotification(title: "You biometric data was changed", subtitle: "Be carefull", style: .warning)
+            self.showErrorNotification(title: "You biometric data was changed",
+                                       subtitle: "Be carefull",
+                                       style: .warning)
         }
     }
+    
+    func setRootAsSuccess() {
+        WindowBuilder.setVCasRoot(viewController: SuccessViewController.self)
+    }
 }
-

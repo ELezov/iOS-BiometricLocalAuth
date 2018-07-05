@@ -17,8 +17,7 @@ class URLSchemeHelper {
     
     static func showDeviceSettings() {
         guard let settingURL = settingURL else { return }
-        
-        if UIApplication.shared.canOpenURL(settingURL){
+        if UIApplication.shared.canOpenURL(settingURL) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
             } else {

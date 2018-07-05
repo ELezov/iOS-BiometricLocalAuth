@@ -18,10 +18,8 @@ class UserDefaultsHelper {
         get {
             return UserDefaults.standard.data(forKey: Constants.bioDateKey)
         }
-        
         set {
             UserDefaults.standard.setValue(newValue, forKey: Constants.bioDateKey)
         }
     }
-    
 }

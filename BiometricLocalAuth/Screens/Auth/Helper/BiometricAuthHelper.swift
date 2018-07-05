@@ -47,7 +47,6 @@ final class BiometricAuthHelper {
         return (result, biometryType, error)
     }
     
-    
     // Проверяем, были ли изменены биометрические данные
     func biometricDateIsValid() -> Bool {
         let context = LAContext()
@@ -58,12 +57,9 @@ final class BiometricAuthHelper {
         // Получаем текущие биометрические данные
         guard let domainState = context.evaluatedPolicyDomainState
             else { return result }
-        
         // Сохраняем новые текущие биометрические данные в UserDefaults
         UserDefaultsHelper.biometricDate = domainState
-        
         result = (domainState == oldDomainState || oldDomainState == nil)
-        
         return result
     }
     
@@ -73,20 +69,16 @@ final class BiometricAuthHelper {
         /* URL: https://developer.apple.com/documentation/localauthentication/lacontext/1622329-touchidauthenticationallowablere */
         // для технологии "быстрого входа", работает лишь с TouchId
         context.touchIDAuthenticationAllowableReuseDuration = 30
-        
         var authError: NSError?
-        
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
                                    localizedReason: reason) { success, evaluateError in
                 reply (success, evaluateError)
             }
         } else {
-            
             guard let error = authError else {
                 return
             }
-            //TODO: Show appropriate alert if biometry/TouchID/FaceID is lockout or not enrolled
             reply (false, error)
         }
     }
@@ -97,13 +89,10 @@ final class BiometricAuthHelper {
             switch errorCode {
             case LAError.biometryNotAvailable.rawValue:
                 message = "Authentication could not start because the device does not support biometric authentication."
-                
             case LAError.biometryLockout.rawValue:
                 message = "Authentication could not continue because the user has been locked out of biometric authentication, due to failing authentication too many times."
-                
             case LAError.biometryNotEnrolled.rawValue:
                 message = "Authentication could not start because the user has not enrolled in biometric authentication."
-                
             default:
                 message = "Did not find error code on LAError object"
             }
@@ -111,55 +100,39 @@ final class BiometricAuthHelper {
             switch errorCode {
             case LAError.touchIDLockout.rawValue:
                 message = "Too many failed attempts."
-                
             case LAError.touchIDNotAvailable.rawValue:
                 message = "TouchID is not available on the device"
-                
             case LAError.touchIDNotEnrolled.rawValue:
                 message = "TouchID is not enrolled on the device"
-                
             default:
                 message = "Did not find error code on LAError object"
             }
         }
-        
-        return message;
+        return message
     }
     
     func evaluateAuthenticationPolicyMessageForLA(errorCode: Int) -> String {
-        
         var message = ""
-        
         switch errorCode {
-            
         case LAError.authenticationFailed.rawValue:
             message = "The user failed to provide valid credentials"
-            
         case LAError.appCancel.rawValue:
             message = "Authentication was cancelled by application"
-            
         case LAError.invalidContext.rawValue:
             message = "The context is invalid"
-            
         case LAError.notInteractive.rawValue:
             message = "Not interactive"
-            
         case LAError.passcodeNotSet.rawValue:
             message = "Passcode is not set on the device"
-            
         case LAError.systemCancel.rawValue:
             message = "Authentication was cancelled by the system"
-            
         case LAError.userCancel.rawValue:
             message = "The user did cancel"
-            
         case LAError.userFallback.rawValue:
             message = "The user chose to use the fallback"
-            
         default:
             message = evaluatePolicyFailErrorMessageForLA(errorCode: errorCode)
         }
-        
         return message
     }
 }
