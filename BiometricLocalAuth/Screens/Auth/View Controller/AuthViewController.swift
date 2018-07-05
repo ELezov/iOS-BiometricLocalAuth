@@ -54,7 +54,7 @@ class AuthViewController: UIViewController {
                         self.handleChangeBiometricDate()
         
                         DispatchQueue.main.async {
-                            self.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_success"), isEnabled: false)
+                            self.configureBiometricAuthButton(image: Asset.fingerprintSuccess.image, isEnabled: false)
                         }
                         
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
@@ -104,10 +104,10 @@ class AuthViewController: UIViewController {
         }
         
         DispatchQueue.main.async {
-            self.configureBiometricAuthButton(image: #imageLiteral(resourceName: "fingerprint_wrong"), isEnabled: false)
+            self.configureBiometricAuthButton(image: Asset.fingerprintWrong.image, isEnabled: false)
         }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-            self.configureBiometricAuthButton(image: #imageLiteral(resourceName: "finger"), isEnabled: true)
+            self.configureBiometricAuthButton(image: Asset.finger.image, isEnabled: true)
         })
     }
     

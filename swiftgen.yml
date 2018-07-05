@@ -1,0 +1,6 @@
+input_dir: BiometricLocalAuth
+output_dir: BiometricLocalAuth/Generated/SwiftGen
+xcassets:
+  paths: Assets.xcassets
+  templateName: swift4
+  output: Assets.swift

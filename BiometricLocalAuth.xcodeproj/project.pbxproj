@@ -11,6 +11,7 @@
 		6E2FDC858EB379DC31E3E691 /* Pods_BiometricLocalAuthUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C92AC7E6CB0AA6D38D35F3A /* Pods_BiometricLocalAuthUITests.framework */; };
 		988B895820ED3312009F04BB /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895720ED3312009F04BB /* AlertHelper.swift */; };
 		988B895A20ED3582009F04BB /* URLSchemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895920ED3582009F04BB /* URLSchemeHelper.swift */; };
+		98ADBCC720ED53D400386404 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ADBCC620ED53D400386404 /* Assets.swift */; };
 		98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */; };
 		98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */; };
 		98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5720C91BB9007EA879 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		8B4789B76864B323893C5A44 /* Pods_BiometricLocalAuthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricLocalAuthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		988B895720ED3312009F04BB /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		988B895920ED3582009F04BB /* URLSchemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHelper.swift; sourceTree = "<group>"; };
+		98ADBCC620ED53D400386404 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowBuilder.swift; sourceTree = "<group>"; };
 		98F9DB5420C91BB9007EA879 /* BiometricLocalAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricLocalAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98ADBCC420ED53A600386404 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				98ADBCC520ED53AC00386404 /* SwiftGen */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		98ADBCC520ED53AC00386404 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				98ADBCC620ED53D400386404 /* Assets.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
 		98B4E64D20EA7E1700B6BAC1 /* Success */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +171,7 @@
 		98F9DB5620C91BB9007EA879 /* BiometricLocalAuth */ = {
 			isa = PBXGroup;
 			children = (
+				98ADBCC420ED53A600386404 /* Generated */,
 				98B4E65120EA81E400B6BAC1 /* Helper */,
 				98F9DB8A20C91F1D007EA879 /* Screens */,
 				98F9DB5720C91BB9007EA879 /* AppDelegate.swift */,
@@ -255,6 +274,7 @@
 				98F9DB5120C91BB9007EA879 /* Frameworks */,
 				98F9DB5220C91BB9007EA879 /* Resources */,
 				51F17C9A9DB74C6509972316 /* [CP] Embed Pods Frameworks */,
+				98ADBCC320ED508200386404 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -457,6 +477,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		98ADBCC320ED508200386404 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = $PODS_ROOT/SwiftGen/bin/swiftgen;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -472,6 +505,7 @@
 				988B895820ED3312009F04BB /* AlertHelper.swift in Sources */,
 				98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */,
 				98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */,
+				98ADBCC720ED53D400386404 /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
