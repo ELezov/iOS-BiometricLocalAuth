@@ -4,3 +4,7 @@ xcassets:
   paths: Assets.xcassets
   templateName: swift4
   output: Assets.swift
+strings:
+  paths: Base.lproj/Localizable.strings
+  templateName: structured-swift4
+  output: Strings.swift

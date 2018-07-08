@@ -34,7 +34,7 @@ final class BiometricAuthHelper {
         let context = LAContext()
         var biometryType: BiometryType
         var error: NSError?
-        let result = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        let result =  context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         if #available(iOS 11.0, *) {
             if result {
                 biometryType = context.biometryType == LABiometryType.faceID ? .faceID : .touchID
@@ -88,26 +88,24 @@ final class BiometricAuthHelper {
         if #available(iOS 11.0, macOS 10.13, *) {
             switch errorCode {
             case LAError.biometryNotAvailable.rawValue:
-                message = "Authentication could not start because the device does not support biometric authentication."
+                message = L10n.Biometry.notAvailable
             case LAError.biometryLockout.rawValue:
-                message = "Authentication could not continue because the user has been locked out" +
-                " of biometric authentication, due to failing authentication too many times."
+                message = L10n.Biometry.lockout
             case LAError.biometryNotEnrolled.rawValue:
-                message = "Authentication could not start because the user has not enrolled" +
-                "in biometric authentication."
+                message = L10n.Biometry.notEnrolled
             default:
-                message = "Did not find error code on LAError object"
+                message = L10n.Biometry.unknown
             }
         } else {
             switch errorCode {
             case LAError.touchIDLockout.rawValue:
-                message = "Too many failed attempts."
+                message = L10n.Touchid.lockout
             case LAError.touchIDNotAvailable.rawValue:
-                message = "TouchID is not available on the device"
+                message = L10n.Touchid.notAvailable
             case LAError.touchIDNotEnrolled.rawValue:
-                message = "TouchID is not enrolled on the device"
+                message = L10n.Touchid.notEnrolled
             default:
-                message = "Did not find error code on LAError object"
+                message = L10n.Biometry.unknown
             }
         }
         return message

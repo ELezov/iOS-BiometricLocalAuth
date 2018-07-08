@@ -78,7 +78,7 @@ class AuthViewController: UIViewController {
                 LAError.biometryNotEnrolled.rawValue].contains(where: { $0 == errorCode }) {
                     self.alertHelper.showAlertToDeviceSettings(errorMessage: messageError)
             } else {
-                self.showErrorNotification(title: "Auth Failed", subtitle: messageError)
+                self.showErrorNotification(title: L10n.Auth.failed, subtitle: messageError)
             }
         } else {
             if [LAError.touchIDLockout.rawValue,
@@ -86,7 +86,7 @@ class AuthViewController: UIViewController {
                 LAError.touchIDNotEnrolled.rawValue].contains(where: { $0 == errorCode }) {
                     self.alertHelper.showAlertToDeviceSettings(errorMessage: messageError)
             } else {
-                self.showErrorNotification(title: "Auth Failed", subtitle: messageError)
+                self.showErrorNotification(title: L10n.Auth.failed, subtitle: messageError)
             }
         }
         DispatchQueue.main.async {
@@ -100,8 +100,8 @@ class AuthViewController: UIViewController {
     private func handleChangeBiometricDate() {
         // Проверка на изменение данных
         if !self.biometricAuthHelper.biometricDateIsValid() {
-            self.showErrorNotification(title: "You biometric data was changed",
-                                       subtitle: "Be carefull",
+            self.showErrorNotification(title: L10n.Auth.Biometric.changed,
+                                       subtitle: L10n.Auth.carefull,
                                        style: .warning)
         }
     }
