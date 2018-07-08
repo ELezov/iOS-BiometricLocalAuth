@@ -8,7 +8,7 @@ target 'BiometricLocalAuth' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'NotificationBannerSwift'
   pod 'SwiftGen'
-  #pod 'SwiftLint'
+  pod 'SwiftLint'
   # Pods for BiometricLocalAuth
 
   target 'BiometricLocalAuthTests' do

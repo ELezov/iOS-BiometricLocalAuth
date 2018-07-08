@@ -34,7 +34,6 @@ class AuthViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    
     private func configureBiometricAuthButton() {
         biometricAuthButton.rx.tap
             .asObservable()

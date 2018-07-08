@@ -90,9 +90,11 @@ final class BiometricAuthHelper {
             case LAError.biometryNotAvailable.rawValue:
                 message = "Authentication could not start because the device does not support biometric authentication."
             case LAError.biometryLockout.rawValue:
-                message = "Authentication could not continue because the user has been locked out of biometric authentication, due to failing authentication too many times."
+                message = "Authentication could not continue because the user has been locked out" +
+                " of biometric authentication, due to failing authentication too many times."
             case LAError.biometryNotEnrolled.rawValue:
-                message = "Authentication could not start because the user has not enrolled in biometric authentication."
+                message = "Authentication could not start because the user has not enrolled" +
+                "in biometric authentication."
             default:
                 message = "Did not find error code on LAError object"
             }

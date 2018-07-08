@@ -1,13 +1,38 @@
 disabled_rules: # rule identifiers to exclude from running
-  - colon
-  - comma
-  - control_statement
+  - trailing_whitespace # Lines should not have trailing whitespace.
+  - vertical_whitespace # Limit vertical whitespace to a single empty line.
+
 opt_in_rules: # some rules are only opt-in
   - empty_count
-  # Find all the available rules by running:
-  # swiftlint rules
+  - empty_string
+  - first_where # Prefer using .first(where:) over .filter { }.first in collections.
+  - force_unwrapping
+  - closure_spacing
+  - switch_case_on_newline # Cases inside a switch should always be on a newline
+  - private_action
+  - private_outlet
 included: # paths to include during linting. `--path` is ignored if present.
   - BiometricLocalAuth
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
+
+line_length:
+  error: 120
+  ignores_urls: true
+  ignores_comments: true
+
+function_parameter_count:
+  error: 10
+
+type_name:
+  max_length:
+    warning: 60
+    error: 100
+
+file_length:
+  warning: 600
+  error: 1000
+
+
+
