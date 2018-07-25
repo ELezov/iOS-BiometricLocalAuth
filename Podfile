@@ -7,18 +7,9 @@ target 'BiometricLocalAuth' do
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
   pod 'NotificationBannerSwift'
+  pod 'SnapKit'
   pod 'SwiftGen'
   pod 'SwiftLint'
   # Pods for BiometricLocalAuth
-
-  target 'BiometricLocalAuthTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BiometricLocalAuthUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 end

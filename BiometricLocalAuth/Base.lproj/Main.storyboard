@@ -17,29 +17,20 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57K-T3-wLY">
-                                <rect key="frame" x="112.5" y="268.5" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="754-Lp-XCD"/>
-                                    <constraint firstAttribute="width" constant="150" id="aHY-jm-ngd"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="finger"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="57K-T3-wLY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GCh-h5-fnL"/>
-                            <constraint firstItem="57K-T3-wLY" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zzg-SC-5mF"/>
-                        </constraints>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PPe-WT-T2v" appends="YES" id="kxT-ai-pK3"/>
+                        </connections>
                     </view>
-                    <connections>
-                        <outlet property="biometricAuthButton" destination="57K-T3-wLY" id="9RL-Ex-sNu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PPe-WT-T2v">
+                    <connections>
+                        <action selector="tapGestureDetected:" destination="BYZ-38-t0r" id="Qe6-KX-qKE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
@@ -90,7 +81,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="finger" width="128" height="128"/>
         <image name="success" width="225" height="225"/>
     </resources>
 </document>

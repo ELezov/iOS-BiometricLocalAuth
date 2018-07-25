@@ -11,9 +11,10 @@
 		334F0F9A20F280380010D4DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 334F0F9C20F280380010D4DE /* Localizable.strings */; };
 		334F0F9F20F281410010D4DE /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F0F9E20F281410010D4DE /* Strings.swift */; };
 		33CD2E7B20EC143F006C0E4E /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD2E7A20EC143F006C0E4E /* UserDefaultsHelper.swift */; };
-		6E2FDC858EB379DC31E3E691 /* Pods_BiometricLocalAuthUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C92AC7E6CB0AA6D38D35F3A /* Pods_BiometricLocalAuthUITests.framework */; };
 		988B895820ED3312009F04BB /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895720ED3312009F04BB /* AlertHelper.swift */; };
 		988B895A20ED3582009F04BB /* URLSchemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895920ED3582009F04BB /* URLSchemeHelper.swift */; };
+		98A5608B2108CB0500C93C2F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5608A2108CB0500C93C2F /* LoginView.swift */; };
+		98A5608D2108E9C100C93C2F /* LoginBiometricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */; };
 		98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */; };
 		98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */; };
 		98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB5720C91BB9007EA879 /* AppDelegate.swift */; };
@@ -21,30 +22,10 @@
 		98F9DB5D20C91BB9007EA879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB5B20C91BB9007EA879 /* Main.storyboard */; };
 		98F9DB5F20C91BBA007EA879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB5E20C91BBA007EA879 /* Assets.xcassets */; };
 		98F9DB6220C91BBA007EA879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */; };
-		98F9DB6D20C91BBA007EA879 /* BiometricLocalAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB6C20C91BBA007EA879 /* BiometricLocalAuthTests.swift */; };
-		98F9DB7820C91BBA007EA879 /* BiometricLocalAuthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB7720C91BBA007EA879 /* BiometricLocalAuthUITests.swift */; };
 		98F9DB8920C91D1B007EA879 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */; };
 		98F9DB8F20C92191007EA879 /* BiometricAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB8E20C92191007EA879 /* BiometricAuthHelper.swift */; };
 		A8A4A6E88ABEDA418D739D3F /* Pods_BiometricLocalAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9FA075EE011A7FE96788E3 /* Pods_BiometricLocalAuth.framework */; };
-		F17C4A02B0DE5713A033FB41 /* Pods_BiometricLocalAuthTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4789B76864B323893C5A44 /* Pods_BiometricLocalAuthTests.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		98F9DB6920C91BBA007EA879 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98F9DB4C20C91BB9007EA879 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 98F9DB5320C91BB9007EA879;
-			remoteInfo = BiometricLocalAuth;
-		};
-		98F9DB7420C91BBA007EA879 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98F9DB4C20C91BB9007EA879 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 98F9DB5320C91BB9007EA879;
-			remoteInfo = BiometricLocalAuth;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		334F0F9620F26FA10010D4DE /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -58,6 +39,8 @@
 		8B4789B76864B323893C5A44 /* Pods_BiometricLocalAuthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricLocalAuthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		988B895720ED3312009F04BB /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		988B895920ED3582009F04BB /* URLSchemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHelper.swift; sourceTree = "<group>"; };
+		98A5608A2108CB0500C93C2F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBiometricView.swift; sourceTree = "<group>"; };
 		98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowBuilder.swift; sourceTree = "<group>"; };
 		98F9DB5420C91BB9007EA879 /* BiometricLocalAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricLocalAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,12 +50,6 @@
 		98F9DB5E20C91BBA007EA879 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F9DB6120C91BBA007EA879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F9DB6320C91BBA007EA879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98F9DB6820C91BBA007EA879 /* BiometricLocalAuthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiometricLocalAuthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98F9DB6C20C91BBA007EA879 /* BiometricLocalAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLocalAuthTests.swift; sourceTree = "<group>"; };
-		98F9DB6E20C91BBA007EA879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98F9DB7320C91BBA007EA879 /* BiometricLocalAuthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiometricLocalAuthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98F9DB7720C91BBA007EA879 /* BiometricLocalAuthUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLocalAuthUITests.swift; sourceTree = "<group>"; };
-		98F9DB7920C91BBA007EA879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		98F9DB8E20C92191007EA879 /* BiometricAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthHelper.swift; sourceTree = "<group>"; };
 		9B74FD5CB2DE362D0C9203E0 /* Pods-BiometricLocalAuthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuthUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuthUITests/Pods-BiometricLocalAuthUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,22 +65,6 @@
 			files = (
 				98F9DB8920C91D1B007EA879 /* LocalAuthentication.framework in Frameworks */,
 				A8A4A6E88ABEDA418D739D3F /* Pods_BiometricLocalAuth.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98F9DB6520C91BBA007EA879 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F17C4A02B0DE5713A033FB41 /* Pods_BiometricLocalAuthTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98F9DB7020C91BBA007EA879 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6E2FDC858EB379DC31E3E691 /* Pods_BiometricLocalAuthUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +86,15 @@
 				334F0F9620F26FA10010D4DE /* Assets.swift */,
 			);
 			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		98A560872108CA8D00C93C2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98A5608A2108CB0500C93C2F /* LoginView.swift */,
+				98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		98B4E64D20EA7E1700B6BAC1 /* Success */ = {
@@ -155,8 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				98F9DB5620C91BB9007EA879 /* BiometricLocalAuth */,
-				98F9DB6B20C91BBA007EA879 /* BiometricLocalAuthTests */,
-				98F9DB7620C91BBA007EA879 /* BiometricLocalAuthUITests */,
 				98F9DB5520C91BB9007EA879 /* Products */,
 				98F9DB8720C91D1B007EA879 /* Frameworks */,
 				9E9833F1C1B8CCF028703105 /* Pods */,
@@ -167,8 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				98F9DB5420C91BB9007EA879 /* BiometricLocalAuth.app */,
-				98F9DB6820C91BBA007EA879 /* BiometricLocalAuthTests.xctest */,
-				98F9DB7320C91BBA007EA879 /* BiometricLocalAuthUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,24 +153,6 @@
 				334F0F9C20F280380010D4DE /* Localizable.strings */,
 			);
 			path = BiometricLocalAuth;
-			sourceTree = "<group>";
-		};
-		98F9DB6B20C91BBA007EA879 /* BiometricLocalAuthTests */ = {
-			isa = PBXGroup;
-			children = (
-				98F9DB6C20C91BBA007EA879 /* BiometricLocalAuthTests.swift */,
-				98F9DB6E20C91BBA007EA879 /* Info.plist */,
-			);
-			path = BiometricLocalAuthTests;
-			sourceTree = "<group>";
-		};
-		98F9DB7620C91BBA007EA879 /* BiometricLocalAuthUITests */ = {
-			isa = PBXGroup;
-			children = (
-				98F9DB7720C91BBA007EA879 /* BiometricLocalAuthUITests.swift */,
-				98F9DB7920C91BBA007EA879 /* Info.plist */,
-			);
-			path = BiometricLocalAuthUITests;
 			sourceTree = "<group>";
 		};
 		98F9DB8720C91D1B007EA879 /* Frameworks */ = {
@@ -230,6 +178,7 @@
 		98F9DB8B20C91F29007EA879 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				98A560872108CA8D00C93C2F /* View */,
 				98F9DB8D20C9217F007EA879 /* Helper */,
 				98F9DB8C20C92176007EA879 /* View Controller */,
 			);
@@ -282,7 +231,6 @@
 				51F17C9A9DB74C6509972316 /* [CP] Embed Pods Frameworks */,
 				98ADBCC320ED508200386404 /* SwiftGen */,
 				9813A9BE20EE8A5200115285 /* SwiftLint */,
-				107325EF965BDFBD65B062CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,48 +240,6 @@
 			productName = BiometricLocalAuth;
 			productReference = 98F9DB5420C91BB9007EA879 /* BiometricLocalAuth.app */;
 			productType = "com.apple.product-type.application";
-		};
-		98F9DB6720C91BBA007EA879 /* BiometricLocalAuthTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 98F9DB7F20C91BBA007EA879 /* Build configuration list for PBXNativeTarget "BiometricLocalAuthTests" */;
-			buildPhases = (
-				7DDB21AF43DE72388EFBEF72 /* [CP] Check Pods Manifest.lock */,
-				98F9DB6420C91BBA007EA879 /* Sources */,
-				98F9DB6520C91BBA007EA879 /* Frameworks */,
-				98F9DB6620C91BBA007EA879 /* Resources */,
-				306FC994B1D45A87A7613859 /* [CP] Embed Pods Frameworks */,
-				37FDE473E6A8A787602609E5 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				98F9DB6A20C91BBA007EA879 /* PBXTargetDependency */,
-			);
-			name = BiometricLocalAuthTests;
-			productName = BiometricLocalAuthTests;
-			productReference = 98F9DB6820C91BBA007EA879 /* BiometricLocalAuthTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		98F9DB7220C91BBA007EA879 /* BiometricLocalAuthUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 98F9DB8220C91BBA007EA879 /* Build configuration list for PBXNativeTarget "BiometricLocalAuthUITests" */;
-			buildPhases = (
-				6DBA08A2C861BF66A52BFA91 /* [CP] Check Pods Manifest.lock */,
-				98F9DB6F20C91BBA007EA879 /* Sources */,
-				98F9DB7020C91BBA007EA879 /* Frameworks */,
-				98F9DB7120C91BBA007EA879 /* Resources */,
-				3E988D581529604F4F843533 /* [CP] Embed Pods Frameworks */,
-				A374991E2C49EDBC7B3B5556 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				98F9DB7520C91BBA007EA879 /* PBXTargetDependency */,
-			);
-			name = BiometricLocalAuthUITests;
-			productName = BiometricLocalAuthUITests;
-			productReference = 98F9DB7320C91BBA007EA879 /* BiometricLocalAuthUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -348,16 +254,6 @@
 					98F9DB5320C91BB9007EA879 = {
 						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
-					};
-					98F9DB6720C91BBA007EA879 = {
-						CreatedOnToolsVersion = 9.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 98F9DB5320C91BB9007EA879;
-					};
-					98F9DB7220C91BBA007EA879 = {
-						CreatedOnToolsVersion = 9.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 98F9DB5320C91BB9007EA879;
 					};
 				};
 			};
@@ -375,8 +271,6 @@
 			projectRoot = "";
 			targets = (
 				98F9DB5320C91BB9007EA879 /* BiometricLocalAuth */,
-				98F9DB6720C91BBA007EA879 /* BiometricLocalAuthTests */,
-				98F9DB7220C91BBA007EA879 /* BiometricLocalAuthUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -393,38 +287,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98F9DB6620C91BBA007EA879 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98F9DB7120C91BBA007EA879 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		107325EF965BDFBD65B062CD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		296079B77B78C0DA6EA4174E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,51 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		306FC994B1D45A87A7613859 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuthTests/Pods-BiometricLocalAuthTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37FDE473E6A8A787602609E5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuthTests/Pods-BiometricLocalAuthTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3E988D581529604F4F843533 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuthUITests/Pods-BiometricLocalAuthUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		51F17C9A9DB74C6509972316 /* [CP] Embed Pods Frameworks */ = {
@@ -512,42 +332,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6DBA08A2C861BF66A52BFA91 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BiometricLocalAuthUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7DDB21AF43DE72388EFBEF72 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BiometricLocalAuthTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9813A9BE20EE8A5200115285 /* SwiftLint */ = {
@@ -578,21 +362,6 @@
 			shellPath = /bin/sh;
 			shellScript = $PODS_ROOT/SwiftGen/bin/swiftgen;
 		};
-		A374991E2C49EDBC7B3B5556 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuthUITests/Pods-BiometricLocalAuthUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -605,44 +374,17 @@
 				334F0F9F20F281410010D4DE /* Strings.swift in Sources */,
 				98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */,
 				98F9DB5A20C91BB9007EA879 /* AuthViewController.swift in Sources */,
+				98A5608D2108E9C100C93C2F /* LoginBiometricView.swift in Sources */,
 				98F9DB8F20C92191007EA879 /* BiometricAuthHelper.swift in Sources */,
 				988B895820ED3312009F04BB /* AlertHelper.swift in Sources */,
 				98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */,
+				98A5608B2108CB0500C93C2F /* LoginView.swift in Sources */,
 				98F9DB5820C91BB9007EA879 /* AppDelegate.swift in Sources */,
 				334F0F9720F26FA20010D4DE /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98F9DB6420C91BBA007EA879 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98F9DB6D20C91BBA007EA879 /* BiometricLocalAuthTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98F9DB6F20C91BBA007EA879 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98F9DB7820C91BBA007EA879 /* BiometricLocalAuthUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		98F9DB6A20C91BBA007EA879 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 98F9DB5320C91BB9007EA879 /* BiometricLocalAuth */;
-			targetProxy = 98F9DB6920C91BBA007EA879 /* PBXContainerItemProxy */;
-		};
-		98F9DB7520C91BBA007EA879 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 98F9DB5320C91BB9007EA879 /* BiometricLocalAuth */;
-			targetProxy = 98F9DB7420C91BBA007EA879 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		334F0F9C20F280380010D4DE /* Localizable.strings */ = {
@@ -819,72 +561,6 @@
 			};
 			name = Release;
 		};
-		98F9DB8020C91BBA007EA879 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A70013FBE3B360D856FA0B72 /* Pods-BiometricLocalAuthTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BiometricLocalAuthTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elezov.BiometricLocalAuthTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiometricLocalAuth.app/BiometricLocalAuth";
-			};
-			name = Debug;
-		};
-		98F9DB8120C91BBA007EA879 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A03DA9DEEB80D1D85B71685 /* Pods-BiometricLocalAuthTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BiometricLocalAuthTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elezov.BiometricLocalAuthTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiometricLocalAuth.app/BiometricLocalAuth";
-			};
-			name = Release;
-		};
-		98F9DB8320C91BBA007EA879 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1B48EFC472F03F4DFB20183 /* Pods-BiometricLocalAuthUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BiometricLocalAuthUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elezov.BiometricLocalAuthUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BiometricLocalAuth;
-			};
-			name = Debug;
-		};
-		98F9DB8420C91BBA007EA879 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B74FD5CB2DE362D0C9203E0 /* Pods-BiometricLocalAuthUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BiometricLocalAuthUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elezov.BiometricLocalAuthUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BiometricLocalAuth;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -902,24 +578,6 @@
 			buildConfigurations = (
 				98F9DB7D20C91BBA007EA879 /* Debug */,
 				98F9DB7E20C91BBA007EA879 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		98F9DB7F20C91BBA007EA879 /* Build configuration list for PBXNativeTarget "BiometricLocalAuthTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				98F9DB8020C91BBA007EA879 /* Debug */,
-				98F9DB8120C91BBA007EA879 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		98F9DB8220C91BBA007EA879 /* Build configuration list for PBXNativeTarget "BiometricLocalAuthUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				98F9DB8320C91BBA007EA879 /* Debug */,
-				98F9DB8420C91BBA007EA879 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

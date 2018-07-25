@@ -15,14 +15,18 @@ import LocalAuthentication
 
 class AuthViewController: UIViewController {
 
+    
     // MARK: - Private
     
     private var alertHelper: AlertHelper!
     private var biometricAuthHelper: BiometricAuthHelper!
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var biometricAuthButton: UIButton!
+    let loginView: LoginView = LoginView()
+    let loginBiometricView = LoginBiometricView()
+
+    @IBAction func tapGestureDetected(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
     // MARK: - LifeCycle
     
@@ -30,35 +34,51 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         alertHelper = AlertHelper(presenter: self)
         biometricAuthHelper = BiometricAuthHelper()
-        configureBiometricAuthButton()
     }
     
-    // MARK: - Private methods
-    private func configureBiometricAuthButton() {
-        biometricAuthButton.rx.tap
-            .asObservable()
-            .bind { [weak self] in
-                self?.biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (_, error) in
-                    guard let `self` = self else { return }
-                    if let error = error {
-                        self.handleError(error: error)
-                    } else {
-                        // Отслеживаем изменение биометрических данных
-                        self.handleChangeBiometricDate()
-                        DispatchQueue.main.async {
-                            self.configureBiometricAuthButton(image: Asset.fingerprintSuccess.image, isEnabled: false)
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                            self.setRootAsSuccess()
-                        })
-                    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.addSubview(loginView)
+        loginView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view)
+            make.top.equalTo(self.view).offset(100)
+            make.right.equalTo(self.view)
+            make.height.equalTo(300)
+        }
+        
+        view.addSubview(loginBiometricView)
+        
+        loginBiometricView.snp.makeConstraints { (make) in
+            make.top.equalTo(loginView.snp.bottom).offset(32)
+            make.left.equalTo(self.view)
+            make.right.equalTo(self.view)
+            make.height.equalTo(200)
+        }
+        
+        loginBiometricView.buttonAction = { [weak self] in
+            self?.authBiometric()
+        }
+        
+    }
+    
+    private func authBiometric() {
+        self.biometricAuthHelper.authenticationWithBiometric(reply: { [weak self] (_, error) in
+            guard let `self` = self else { return }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                self.loginBiometricView.resetLoginBiometricView()
+            })
+            if let error = error {
+                self.handleError(error: error)
+            } else {
+                // Отслеживаем изменение биометрических данных
+                self.handleChangeBiometricDate()
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                    self.setRootAsSuccess()
                 })
             }
-    }
-    
-    private func configureBiometricAuthButton(image: UIImage, isEnabled: Bool) {
-        self.biometricAuthButton.setImage(image, for: UIControlState())
-        self.biometricAuthButton.isEnabled = isEnabled
+        })
     }
     
     private func showErrorNotification(title: String, subtitle: String, style: BannerStyle = .danger) {
@@ -89,12 +109,6 @@ class AuthViewController: UIViewController {
                 self.showErrorNotification(title: L10n.Auth.failed, subtitle: messageError)
             }
         }
-        DispatchQueue.main.async {
-            self.configureBiometricAuthButton(image: Asset.fingerprintWrong.image, isEnabled: false)
-        }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-            self.configureBiometricAuthButton(image: Asset.finger.image, isEnabled: true)
-        })
     }
     
     private func handleChangeBiometricDate() {
