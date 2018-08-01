@@ -13,7 +13,11 @@ import RxCocoa
 import NotificationBannerSwift
 import LocalAuthentication
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, AuthView {
+    
+    var onLogInSuccess: (() -> Void)?
+    
+    var onCompleteAuth: (() -> Void)?
 
     
     // MARK: - Private
@@ -74,8 +78,8 @@ class AuthViewController: UIViewController {
                 // Отслеживаем изменение биометрических данных
                 self.handleChangeBiometricDate()
                 
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                    self.setRootAsSuccess()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: { [weak self] in
+                    self?.onLogInSuccess?()
                 })
             }
         })
@@ -118,9 +122,5 @@ class AuthViewController: UIViewController {
                                        subtitle: L10n.Auth.carefull,
                                        style: .warning)
         }
-    }
-    
-    func setRootAsSuccess() {
-        WindowBuilder.setVCasRoot(viewController: SuccessViewController.self)
     }
 }

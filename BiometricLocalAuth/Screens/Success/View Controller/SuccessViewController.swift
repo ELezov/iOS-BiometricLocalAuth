@@ -8,15 +8,32 @@
 
 import UIKit
 
-class SuccessViewController: UIViewController {
+class SuccessViewController: UIViewController, LogInSuccessView {
+    
+    var onContinueButtonTap: (() -> Void)?
+    
+    var onCompleteAuth: (() -> Void)?
+    
+    var onSignUpButtonTap: (() -> Void)?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
 
     @IBAction func actionButtonTapped(_ sender: Any) {
-        WindowBuilder.setVCasRoot(viewController: AuthViewController.self)
+        onContinueButtonTap?()
     }
 }
