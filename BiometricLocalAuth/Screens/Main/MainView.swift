@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MainView: class {
+protocol MainView: BaseView {
     var onItemFlowSelect: ((UINavigationController) -> ())? { get set }
     var onAboutFlowSelect: ((UINavigationController) -> ())? { get set }
     var onViewDidLoad: ((UINavigationController) -> ())? { get set }

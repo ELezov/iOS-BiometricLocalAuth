@@ -6,9 +6,10 @@
 //  Copyright © 2018 Eugene Lezov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class CoordinatorFactoryImp: CoordinatorFactory {
+    
     
     func makeMainCoordinator() -> (configurator: Coordinator, toPresent: Presentable?) {
         let controller = MainViewController.controllerFromStoryboard(.main)
@@ -16,14 +17,30 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         return (coordinator, controller)
     }
     
-    func makeAboutCoordinator(router: Router) -> Coordinator {
-        let coordinator = AboutCoordinator(router: router, factory: ModuleFactoryImp())
+    func makeAuthCoordinatorBox(router: Router) -> Coordinator & AuthCoordinatorOutput {
+        let coordinator = AuthCoordinator(router: router, factory: ModuleFactoryImp())
         return coordinator
     }
     
-    func makeAuthCoordinatorBox(router: Router) -> Coordinator {
-        let coordinator = AuthCoordinator(router: router, factory: ModuleFactoryImp())
+    func makeAboutCoordinator() -> Coordinator {
+        return makeAboutCoordinator(navController: navigationController(nil))
+    }
+    
+    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator {
+        let coordinator = AboutCoordinator(router: router(navController), factory: ModuleFactoryImp())
         return coordinator
+    }
+    
+    
+    // MARK: - Private
+    
+    private func router(_ navController: UINavigationController?) -> Router {
+        return RouterImp(rootController: navigationController(navController))
+    }
+    
+    private func navigationController(_ navController: UINavigationController?) -> UINavigationController {
+        if let navController = navController { return navController }
+        else { return UINavigationController.controllerFromStoryboard(.main) }
     }
     
 }

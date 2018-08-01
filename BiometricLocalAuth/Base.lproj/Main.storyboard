@@ -13,7 +13,7 @@
         <!--Item 2-->
         <scene sceneID="giA-LI-tpm">
             <objects>
-                <viewController id="Qdz-qh-38d" sceneMemberID="viewController">
+                <viewController id="Qdz-qh-38d" customClass="UINavigationController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vKL-nf-Ymw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,23 +29,23 @@
         <!--Item 1-->
         <scene sceneID="gbG-LY-llM">
             <objects>
-                <viewController id="ot0-c5-UUA" sceneMemberID="viewController">
+                <viewController id="ot0-c5-UUA" customClass="UINavigationController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6D6-J6-vud">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MiG-yu-fQh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="ELq-bu-G1d"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" image="finger" id="ELq-bu-G1d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1K-pM-T3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-719" y="-1208"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="ou8-2m-H5V">
             <objects>
-                <tabBarController id="Hk2-4i-sB6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hk2-4i-sB6" customClass="MainViewController" customModule="BiometricLocalAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G4r-xE-CEc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -71,7 +71,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z89-9B-TYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-713" y="116"/>
+            <point key="canvasLocation" x="-3412" y="-827"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -95,7 +95,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="-2586" y="-1192"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="WUr-Qo-fUN">
@@ -140,10 +140,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tT-YB-cBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821" y="116"/>
+            <point key="canvasLocation" x="-2586" y="-505"/>
         </scene>
     </scenes>
     <resources>
+        <image name="finger" width="128" height="128"/>
         <image name="success" width="225" height="225"/>
     </resources>
 </document>

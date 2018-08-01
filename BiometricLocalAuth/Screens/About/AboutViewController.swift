@@ -13,10 +13,18 @@ final class AboutViewController: UIViewController, AboutView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Settings"
+        title = "About"
+        configureAppereance()
     }
     
-   
+    private func configureAppereance() {
+        let titleLabel = UILabel()
+        view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        
+        titleLabel.text = "This is test app"
+        titleLabel.adjustsFontSizeToFitWidth = true
+    }
 }
-
-

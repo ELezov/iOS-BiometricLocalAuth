@@ -6,8 +6,11 @@
 //  Copyright © 2018 Eugene Lezov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol AboutView: class {
+protocol AboutView: BaseView {
     
 }
+
+
+

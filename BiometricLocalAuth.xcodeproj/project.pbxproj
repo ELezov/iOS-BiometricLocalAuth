@@ -48,6 +48,8 @@
 		98F9DB6220C91BBA007EA879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */; };
 		98F9DB8920C91D1B007EA879 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */; };
 		98F9DB8F20C92191007EA879 /* BiometricAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9DB8E20C92191007EA879 /* BiometricAuthHelper.swift */; };
+		98FC09352112126900A6F04C /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC09342112126900A6F04C /* AuthCoordinatorOutput.swift */; };
+		98FC09372112186A00A6F04C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FC09362112186A00A6F04C /* Auth.storyboard */; };
 		A8A4A6E88ABEDA418D739D3F /* Pods_BiometricLocalAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9FA075EE011A7FE96788E3 /* Pods_BiometricLocalAuth.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		98F9DB6320C91BBA007EA879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F9DB8820C91D1B007EA879 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		98F9DB8E20C92191007EA879 /* BiometricAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthHelper.swift; sourceTree = "<group>"; };
+		98FC09342112126900A6F04C /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
+		98FC09362112186A00A6F04C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9B74FD5CB2DE362D0C9203E0 /* Pods-BiometricLocalAuthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuthUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuthUITests/Pods-BiometricLocalAuthUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A70013FBE3B360D856FA0B72 /* Pods-BiometricLocalAuthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuthTests/Pods-BiometricLocalAuthTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA9FA075EE011A7FE96788E3 /* Pods_BiometricLocalAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricLocalAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,26 +145,8 @@
 			children = (
 				98A5608A2108CB0500C93C2F /* LoginView.swift */,
 				98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */,
-				98EC52412110C4D800AD84D1 /* AuthView.swift */,
-				98EC52582110D12500AD84D1 /* LogInSuccessView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		98B4E64D20EA7E1700B6BAC1 /* Success */ = {
-			isa = PBXGroup;
-			children = (
-				98B4E65020EA7E4200B6BAC1 /* View Controller */,
-			);
-			path = Success;
-			sourceTree = "<group>";
-		};
-		98B4E65020EA7E4200B6BAC1 /* View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */,
-			);
-			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		98B4E65120EA81E400B6BAC1 /* Helper */ = {
@@ -227,6 +213,8 @@
 			children = (
 				98EC52462110C82700AD84D1 /* StoryboardsEnum.swift */,
 				98EC52612110D70700AD84D1 /* About.storyboard */,
+				98F9DB5B20C91BB9007EA879 /* Main.storyboard */,
+				98FC09362112186A00A6F04C /* Auth.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -286,7 +274,6 @@
 				334F0F9420F26EC20010D4DE /* Generated */,
 				98B4E65120EA81E400B6BAC1 /* Helper */,
 				98F9DB8A20C91F1D007EA879 /* Screens */,
-				98F9DB5B20C91BB9007EA879 /* Main.storyboard */,
 				98F9DB5E20C91BBA007EA879 /* Assets.xcassets */,
 				98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */,
 				98F9DB6320C91BBA007EA879 /* Info.plist */,
@@ -312,7 +299,6 @@
 				98EC525A2110D58300AD84D1 /* About */,
 				98EC52532110CFD500AD84D1 /* Main */,
 				98EC52452110C81300AD84D1 /* Storyboards */,
-				98B4E64D20EA7E1700B6BAC1 /* Success */,
 				98F9DB8B20C91F29007EA879 /* Auth */,
 			);
 			path = Screens;
@@ -321,9 +307,13 @@
 		98F9DB8B20C91F29007EA879 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				98EC52412110C4D800AD84D1 /* AuthView.swift */,
+				98EC52582110D12500AD84D1 /* LogInSuccessView.swift */,
+				98EC523B2110C40000AD84D1 /* AuthCoordinator.swift */,
 				98A560872108CA8D00C93C2F /* View */,
 				98F9DB8D20C9217F007EA879 /* Helper */,
 				98F9DB8C20C92176007EA879 /* View Controller */,
+				98FC09342112126900A6F04C /* AuthCoordinatorOutput.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -332,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				98F9DB5920C91BB9007EA879 /* AuthViewController.swift */,
+				98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -343,7 +334,6 @@
 				33CD2E7A20EC143F006C0E4E /* UserDefaultsHelper.swift */,
 				988B895720ED3312009F04BB /* AlertHelper.swift */,
 				988B895920ED3582009F04BB /* URLSchemeHelper.swift */,
-				98EC523B2110C40000AD84D1 /* AuthCoordinator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -424,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98FC09372112186A00A6F04C /* Auth.storyboard in Resources */,
 				98F9DB6220C91BBA007EA879 /* LaunchScreen.storyboard in Resources */,
 				98EC52622110D70700AD84D1 /* About.storyboard in Resources */,
 				334F0F9A20F280380010D4DE /* Localizable.strings in Resources */,
@@ -527,6 +518,7 @@
 				98EC52342110C22000AD84D1 /* ApplicationCoordinator.swift in Sources */,
 				98EC52382110C2F800AD84D1 /* Router.swift in Sources */,
 				98EC524A2110C92500AD84D1 /* UIViewController + Extension.swift in Sources */,
+				98FC09352112126900A6F04C /* AuthCoordinatorOutput.swift in Sources */,
 				98EC52322110C1B100AD84D1 /* CoordinatorFactoryImp.swift in Sources */,
 				98EC52522110CE6100AD84D1 /* MainCoordinator.swift in Sources */,
 				98EC52552110CFF500AD84D1 /* MainView.swift in Sources */,

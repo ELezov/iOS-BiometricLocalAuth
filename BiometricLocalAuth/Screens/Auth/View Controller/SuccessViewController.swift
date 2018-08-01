@@ -9,12 +9,11 @@
 import UIKit
 
 class SuccessViewController: UIViewController, LogInSuccessView {
+    var onFinish: (() -> Void)?
     
     var onContinueButtonTap: (() -> Void)?
     
     var onCompleteAuth: (() -> Void)?
-    
-    var onSignUpButtonTap: (() -> Void)?
     
 
     override func viewDidLoad() {
@@ -34,6 +33,6 @@ class SuccessViewController: UIViewController, LogInSuccessView {
     }
 
     @IBAction func actionButtonTapped(_ sender: Any) {
-        onContinueButtonTap?()
+        onFinish?()
     }
 }

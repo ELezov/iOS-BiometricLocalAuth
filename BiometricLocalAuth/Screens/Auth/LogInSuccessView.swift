@@ -10,6 +10,6 @@ import Foundation
 
 protocol LogInSuccessView: BaseView {
     var onCompleteAuth: (() -> Void)? { get set }
-    var onSignUpButtonTap: (() -> Void)? { get set }
+    var onFinish: (() -> Void)? { get set }
     var onContinueButtonTap: (() -> Void)? { get set }
 }

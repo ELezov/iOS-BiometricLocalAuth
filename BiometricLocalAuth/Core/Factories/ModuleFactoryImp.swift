@@ -16,13 +16,12 @@ AboutModuleFactory {
     // MARK: - AuthModuleFactory
     
     func makeAuthOutput() -> AuthView {
-        return AuthViewController.controllerFromStoryboard(.main)
+        return AuthViewController.controllerFromStoryboard(.auth)
     }
     
     func makeLogInSuccessOutput() -> LogInSuccessView {
-        return SuccessViewController.controllerFromStoryboard(.main)
+        return SuccessViewController.controllerFromStoryboard(.auth)
     }
-    
     
     // MARK: - AboutModuleFactory
     func makeAboutOutput() -> AboutView {

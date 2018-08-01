@@ -9,9 +9,10 @@
 import UIKit
 
 protocol CoordinatorFactory {
-    func makeAuthCoordinatorBox(router: Router) -> Coordinator
+    func makeAuthCoordinatorBox(router: Router) -> Coordinator  & AuthCoordinatorOutput
     
     func makeMainCoordinator() -> (configurator: Coordinator, toPresent: Presentable?)
     
-    func makeAboutCoordinator(router: Router) -> Coordinator
+    func makeAboutCoordinator() -> Coordinator
+    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator
 }

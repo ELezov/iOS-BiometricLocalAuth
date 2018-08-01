@@ -27,7 +27,7 @@ class MainCoordinator: BaseCoordinator {
     private func runAboutFlow() -> ((UINavigationController) -> ()) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
-                let itemCoordinator = self.coordinatorFactory.make
+                let itemCoordinator = self.coordinatorFactory.makeAboutCoordinator(navController: navController)
                 itemCoordinator.start()
                 self.addDependency(itemCoordinator)
             }

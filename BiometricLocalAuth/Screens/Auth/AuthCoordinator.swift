@@ -8,8 +8,8 @@
 
 import Foundation
 
-final class AuthCoordinator: BaseCoordinator {
-    
+final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
+
     var finishFlow: (() -> Void)?
     
     private let factory: AuthModuleFactory
@@ -29,7 +29,7 @@ final class AuthCoordinator: BaseCoordinator {
     private func showLogin() {
         let loginOutput = factory.makeAuthOutput()
         loginOutput.onCompleteAuth = { [weak self] in
-            //self?.finishFlow?()
+            self?.finishFlow?()
         }
         
         loginOutput.onLogInSuccess = { [weak self] in
@@ -47,6 +47,10 @@ final class AuthCoordinator: BaseCoordinator {
         
         logInSuccessView.onContinueButtonTap = { [weak self] in
             self?.router.popModule(animated: true)
+        }
+        
+        logInSuccessView.onFinish = { [weak self] in
+            self?.finishFlow?()
         }
         router.push(logInSuccessView)
     }
