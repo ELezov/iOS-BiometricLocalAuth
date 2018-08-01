@@ -11,7 +11,7 @@ import Foundation
 fileprivate var isAutorized = false
 
 fileprivate enum LaunchInstructor {
-    case main, auth//, onboarding
+    case main, auth
     
     static func configure(
         isAutorized: Bool = isAutorized) -> LaunchInstructor {
@@ -40,22 +40,12 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     override func start() {
-//        //start with deepLink
-//        if let option = option {
-//            switch option {
-//            //case .onboarding: runOnboardingFlow()
-//            case .signUp: runAuthFlow()
-//            default: childCoordinators.forEach { coordinator in
-//                coordinator.start(with: option)
-//                }
-//            }
-//            // default start
-//        } else {
-            switch instructor {
-            case .auth: runAuthFlow()
-            case .main: runMainFlow()
-            }
-       // }
+        switch instructor {
+        case .auth:
+            runAuthFlow()
+        case .main:
+            runMainFlow()
+        }
     }
     
     private func runAuthFlow() {
@@ -71,6 +61,11 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     private func runMainFlow() {
         let (coordinator, module) = coordinatorFactory.makeMainCoordinator()
+        coordinator.finishFlow = { [weak self, weak coordinator] in
+            isAutorized = false
+            self?.start()
+            self?.removeDependency(coordinator)
+        }
         addDependency(coordinator)
         router.setRootModule(module, hideBar: true)
         coordinator.start()

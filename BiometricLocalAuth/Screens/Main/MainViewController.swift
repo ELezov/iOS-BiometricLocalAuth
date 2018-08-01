@@ -8,11 +8,16 @@
 
 import UIKit
 
-final class MainViewController: UITabBarController, UITabBarControllerDelegate, MainView {
-    
+final class MainViewController: UITabBarController, UITabBarControllerDelegate, MainView, MainCoordinatorOutput {
     var onItemFlowSelect: ((UINavigationController) -> ())?
+    
     var onAboutFlowSelect: ((UINavigationController) -> ())?
+    
     var onViewDidLoad: ((UINavigationController) -> ())?
+    
+    var onFinish: (() -> ())?
+    
+    var finishFlow: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()

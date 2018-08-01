@@ -11,8 +11,8 @@ import UIKit
 protocol CoordinatorFactory {
     func makeAuthCoordinatorBox(router: Router) -> Coordinator  & AuthCoordinatorOutput
     
-    func makeMainCoordinator() -> (configurator: Coordinator, toPresent: Presentable?)
+    func makeMainCoordinator() -> (configurator: Coordinator & MainCoordinatorOutput, toPresent: Presentable?)
     
-    func makeAboutCoordinator() -> Coordinator
-    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator
+    func makeAboutCoordinator() -> Coordinator & MainCoordinatorOutput
+    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput 
 }

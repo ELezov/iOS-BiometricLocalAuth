@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MainCoordinator: BaseCoordinator {
+class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
+    
+    var finishFlow: (() -> Void)?
     
     private let mainView: MainView
     private let coordinatorFactory: CoordinatorFactory
@@ -28,6 +30,9 @@ class MainCoordinator: BaseCoordinator {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let itemCoordinator = self.coordinatorFactory.makeAboutCoordinator(navController: navController)
+                itemCoordinator.finishFlow = { [weak self] in
+                    self?.finishFlow?()
+                }
                 itemCoordinator.start()
                 self.addDependency(itemCoordinator)
             }

@@ -10,8 +10,7 @@ import UIKit
 
 final class CoordinatorFactoryImp: CoordinatorFactory {
     
-    
-    func makeMainCoordinator() -> (configurator: Coordinator, toPresent: Presentable?) {
+    func makeMainCoordinator() -> (configurator: Coordinator & MainCoordinatorOutput, toPresent: Presentable?) {
         let controller = MainViewController.controllerFromStoryboard(.main)
         let coordinator = MainCoordinator(mainView: controller, coordinatorFactory: CoordinatorFactoryImp())
         return (coordinator, controller)
@@ -22,11 +21,11 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         return coordinator
     }
     
-    func makeAboutCoordinator() -> Coordinator {
+    func makeAboutCoordinator() -> Coordinator & MainCoordinatorOutput {
         return makeAboutCoordinator(navController: navigationController(nil))
     }
     
-    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator {
+    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput{
         let coordinator = AboutCoordinator(router: router(navController), factory: ModuleFactoryImp())
         return coordinator
     }

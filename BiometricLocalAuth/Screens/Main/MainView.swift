@@ -12,4 +12,5 @@ protocol MainView: BaseView {
     var onItemFlowSelect: ((UINavigationController) -> ())? { get set }
     var onAboutFlowSelect: ((UINavigationController) -> ())? { get set }
     var onViewDidLoad: ((UINavigationController) -> ())? { get set }
+    var finishFlow: (() -> Void)? { get set }
 }

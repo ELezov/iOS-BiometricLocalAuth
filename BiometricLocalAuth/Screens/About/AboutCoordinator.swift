@@ -8,7 +8,10 @@
 
 import Foundation
 
-final class AboutCoordinator: BaseCoordinator {
+final class AboutCoordinator: BaseCoordinator, MainCoordinatorOutput {
+    
+    var finishFlow: (() -> Void)?
+    
     
     private let factory: AboutModuleFactory
     private let router: Router
@@ -26,6 +29,9 @@ final class AboutCoordinator: BaseCoordinator {
     
     private func showAbout() {
         let aboutFlowOutput = factory.makeAboutOutput()
+        aboutFlowOutput.onLogOut = { [weak self] in
+            self?.finishFlow?()
+        }
         router.setRootModule(aboutFlowOutput)
     }
 }
