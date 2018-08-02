@@ -13,7 +13,9 @@ import Lottie
 
 final class SettingsViewController: UIViewController, SettingsView {
     
-    var onLogOut: (() -> Void)?
+    var isBack: Bool = false
+    
+    var onFinish: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,14 @@ final class SettingsViewController: UIViewController, SettingsView {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
+        if isBack {
+            let backBarButton = UIBarButtonItem(barButtonSystemItem: .undo,
+                                                target: self,
+                                                action: #selector(backButtonTapped))
+            navigationItem.leftBarButtonItem = backBarButton
+        }
+      
     }
     
     private func configureAppereance() {
@@ -35,6 +44,11 @@ final class SettingsViewController: UIViewController, SettingsView {
             make.edges.equalToSuperview()
         }
         animationView.play()
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        onFinish?()
     }
 }
 

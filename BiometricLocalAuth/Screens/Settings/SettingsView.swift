@@ -9,5 +9,6 @@
 import UIKit
 
 protocol SettingsView: BaseView {
-
+    var onFinish: (() -> Void)? { get set }
+    var isBack: Bool { get set }
 }

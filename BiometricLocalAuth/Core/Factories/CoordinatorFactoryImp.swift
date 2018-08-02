@@ -50,26 +50,22 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         return coordinator
     }
     
-    func makeSettingsCoordinatorBox() ->
-        (configurator: Coordinator,
+    func makeSettingsCoordinatorBox(isBack: Bool = false) ->
+        (configurator: Coordinator & MainCoordinatorOutput,
         toPresent: Presentable?) {
             
-            return makeSettingsCoordinatorBox(navController: navigationController(nil))
+            return makeSettingsCoordinatorBox(navController: navigationController(nil),
+                                              isBack: isBack)
     }
-    func makeSettingsCoordinatorBox(navController: UINavigationController?) ->
-        (configurator: Coordinator,
+    func makeSettingsCoordinatorBox(navController: UINavigationController?,
+                                    isBack: Bool = false) ->
+        (configurator: Coordinator & MainCoordinatorOutput,
         toPresent: Presentable?) {
             
             let router = self.router(navController)
-            let coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp())
+            let coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp(), isBack: isBack)
             return (coordinator, router)
     }
-    
-    func makeSettingsCoordinatorBox(router: Router) -> (configurator: Coordinator, toPresent: Presentable?) {
-        let coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp())
-        return (coordinator, router)
-    }
-    
     
     // MARK: - Private
     

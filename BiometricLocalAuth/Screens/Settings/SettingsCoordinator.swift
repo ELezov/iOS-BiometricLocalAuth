@@ -8,14 +8,19 @@
 
 import Foundation
 
-final class SettingsCoordinator: BaseCoordinator {
+final class SettingsCoordinator: BaseCoordinator, MainCoordinatorOutput {
+    
+    var finishFlow: (() -> Void)?
+    
     
     private let factory: SettingsModuleFactory
     private let router: Router
+    private let isBack: Bool
     
-    init(router: Router, factory: SettingsModuleFactory) {
+    init(router: Router, factory: SettingsModuleFactory, isBack: Bool = false) {
         self.factory = factory
         self.router = router
+        self.isBack = isBack
     }
     
     override func start() {
@@ -24,7 +29,17 @@ final class SettingsCoordinator: BaseCoordinator {
     
     private func showSettings() {
         let settingsFlowOutput = factory.makeSettingsOutput()
-        router.setRootModule(settingsFlowOutput)
+        settingsFlowOutput.isBack = isBack
+        settingsFlowOutput.onFinish = { [weak self] in
+            self?.finishFlow?()
+        }
+        
+        if isBack {
+            router.push(settingsFlowOutput.toPresent())
+        } else {
+            router.setRootModule(settingsFlowOutput)
+        }
+       
     }
 //    private func showAbout() {
 //        let aboutFlowOutput = factory.makeAboutOutput()

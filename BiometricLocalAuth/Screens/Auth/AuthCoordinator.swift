@@ -63,9 +63,14 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
        //let settingsView = ModuleFactoryImp().makeSettingsOutput()
     //router.push(settingsView)
         
-        let (coordinator, module) =  coordinatorFactory.makeSettingsCoordinatorBox()
+        let (coordinator, module) =  coordinatorFactory.makeSettingsCoordinatorBox(isBack: true)
+        coordinator.finishFlow = {[weak self, weak coordinator] in
+            self?.router.dismissModule()
+            //self?.start()
+            self?.removeDependency(coordinator)
+        }
         addDependency(coordinator)
-        router.present(module)
+        router.present(module, animated: true)
         coordinator.start()
     }
     
