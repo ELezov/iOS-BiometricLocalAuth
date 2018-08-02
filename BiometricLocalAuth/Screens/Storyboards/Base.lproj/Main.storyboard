@@ -63,7 +63,7 @@
         <!--Navigation Controller-->
         <scene sceneID="L2s-Hk-ABb">
             <objects>
-                <navigationController id="9tf-TV-fQi" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UINavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9tf-TV-fQi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A2Q-1s-ez0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

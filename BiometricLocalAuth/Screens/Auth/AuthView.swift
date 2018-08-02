@@ -11,4 +11,5 @@ import Foundation
 protocol AuthView: BaseView {
     var onCompleteAuth: (() -> Void)? { get set }
     var onLogInSuccess: (() -> Void)? { get set }
+    var onManualLogIn: (() -> Void)? { get set }
 }

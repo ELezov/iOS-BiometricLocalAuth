@@ -15,6 +15,8 @@ import LocalAuthentication
 
 class AuthViewController: UIViewController, AuthView {
     
+    var onManualLogIn: (() -> Void)?
+    
     var onLogInSuccess: (() -> Void)?
     
     var onCompleteAuth: (() -> Void)?
@@ -49,6 +51,10 @@ class AuthViewController: UIViewController, AuthView {
             make.top.equalTo(self.view).offset(100)
             make.right.equalTo(self.view)
             make.height.equalTo(300)
+        }
+        
+        loginView.onAuthButtonTapped = { [weak self] in
+            self?.onManualLogIn?()
         }
         
         view.addSubview(loginBiometricView)

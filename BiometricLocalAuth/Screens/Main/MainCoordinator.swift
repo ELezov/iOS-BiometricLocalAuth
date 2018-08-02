@@ -23,7 +23,7 @@ class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
     override func start() {
         mainView.onViewDidLoad = runAboutFlow()
         mainView.onItemFlowSelect = runAboutFlow()
-        mainView.onAboutFlowSelect = runAboutFlow()
+        mainView.onAboutFlowSelect = runSettingsFlow()
     }
     
     private func runAboutFlow() -> ((UINavigationController) -> ()) {
@@ -39,13 +39,13 @@ class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
         }
     }
     
-//    private func runSettingsFlow() -> ((UINavigationController) -> ()) {
-//        return { navController in
-//            if navController.viewControllers.isEmpty == true {
-//                let settingsCoordinator = self.coordinatorFactory.makeAboutCoordinator(navController: navController)
-//                settingsCoordinator.start()
-//                self.addDependency(settingsCoordinator)
-//            }
-//        }
-//    }
+    private func runSettingsFlow() -> ((UINavigationController) -> ()) {
+        return { navController in
+            if navController.viewControllers.isEmpty == true {
+                let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)
+                settingsCoordinator.start()
+                self.addDependency(settingsCoordinator)
+            }
+        }
+    }
 }

@@ -14,5 +14,22 @@ protocol CoordinatorFactory {
     func makeMainCoordinator() -> (configurator: Coordinator & MainCoordinatorOutput, toPresent: Presentable?)
     
     func makeAboutCoordinator() -> Coordinator & MainCoordinatorOutput
-    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput 
+    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput
+    
+   func makeSettingsCoordinator(navController: UINavigationController?) -> Coordinator
+    
+    func makeAuthCoordinatorBox() -> Coordinator & AuthCoordinatorOutput
+    
+    func makeAuthCoordinatorBox(navController: UINavigationController?) -> Coordinator & AuthCoordinatorOutput
+    
+    func makeSettingsCoordinatorBox() ->
+        (configurator: Coordinator,
+        toPresent: Presentable?)
+    
+    func makeSettingsCoordinatorBox(navController: UINavigationController?) ->
+        (configurator: Coordinator,
+        toPresent: Presentable?)
+    
+    func makeSettingsCoordinatorBox(router: Router) -> (configurator: Coordinator,
+        toPresent: Presentable?)
 }

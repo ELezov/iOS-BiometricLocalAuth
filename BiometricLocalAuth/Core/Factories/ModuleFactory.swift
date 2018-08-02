@@ -16,3 +16,7 @@ protocol AuthModuleFactory {
 protocol AboutModuleFactory {
     func makeAboutOutput() -> AboutView
 }
+
+protocol SettingsModuleFactory {
+    func makeSettingsOutput() -> SettingsView
+}

@@ -13,18 +13,18 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     var finishFlow: (() -> Void)?
     
     private let factory: AuthModuleFactory
+    private let coordinatorFactory: CoordinatorFactory
     private let router: Router
     
-    init(router: Router, factory: AuthModuleFactory) {
+    init(router: Router, factory: AuthModuleFactory, coordinatorFactory: CoordinatorFactory) {
         self.factory = factory
         self.router = router
+        self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {
         showLogin()
     }
-    
-    //MARK: - Run current flow's controllers
     
     private func showLogin() {
         let loginOutput = factory.makeAuthOutput()
@@ -34,6 +34,10 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         
         loginOutput.onLogInSuccess = { [weak self] in
             self?.showLogInSuccess()
+        }
+        
+        loginOutput.onManualLogIn = { [weak self] in
+            self?.showSettings()
         }
         
         router.setRootModule(loginOutput)
@@ -54,4 +58,16 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         }
         router.push(logInSuccessView)
     }
+    
+    private func showSettings() {
+       //let settingsView = ModuleFactoryImp().makeSettingsOutput()
+    //router.push(settingsView)
+        
+        let (coordinator, module) =  coordinatorFactory.makeSettingsCoordinatorBox()
+        addDependency(coordinator)
+        router.present(module)
+        coordinator.start()
+    }
+    
+    
 }

@@ -27,6 +27,7 @@ class LoginView: UIView {
     
     var isAnimating = false
 
+    var onAuthButtonTapped: (() -> Void)?
     
     init() {
         super.init(frame: CGRect.zero)
@@ -213,6 +214,7 @@ class LoginView: UIView {
                     deadline: DispatchTime.now() + DispatchTimeInterval.seconds(3),
                     execute: { [weak self] in
                         self?.resetLoginView()
+                        self?.onAuthButtonTapped?()
                 })
             }
         }

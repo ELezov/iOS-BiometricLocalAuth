@@ -17,7 +17,22 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     }
     
     func makeAuthCoordinatorBox(router: Router) -> Coordinator & AuthCoordinatorOutput {
-        let coordinator = AuthCoordinator(router: router, factory: ModuleFactoryImp())
+        let coordinator = AuthCoordinator(
+            router: router,
+            factory: ModuleFactoryImp(),
+            coordinatorFactory: CoordinatorFactoryImp())
+        return coordinator
+    }
+    
+    func makeAuthCoordinatorBox() -> Coordinator & AuthCoordinatorOutput {
+        return makeAuthCoordinatorBox(navController: navigationController(nil))
+    }
+    
+    func makeAuthCoordinatorBox(navController: UINavigationController?) -> Coordinator & AuthCoordinatorOutput {
+        let coordinator = AuthCoordinator(
+            router: router(navController),
+            factory: ModuleFactoryImp(),
+            coordinatorFactory: CoordinatorFactoryImp())
         return coordinator
     }
     
@@ -28,6 +43,31 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
     func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput{
         let coordinator = AboutCoordinator(router: router(navController), factory: ModuleFactoryImp())
         return coordinator
+    }
+    
+    func makeSettingsCoordinator(navController: UINavigationController?) -> Coordinator {
+        let coordinator = SettingsCoordinator(router: router(navController), factory: ModuleFactoryImp())
+        return coordinator
+    }
+    
+    func makeSettingsCoordinatorBox() ->
+        (configurator: Coordinator,
+        toPresent: Presentable?) {
+            
+            return makeSettingsCoordinatorBox(navController: navigationController(nil))
+    }
+    func makeSettingsCoordinatorBox(navController: UINavigationController?) ->
+        (configurator: Coordinator,
+        toPresent: Presentable?) {
+            
+            let router = self.router(navController)
+            let coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp())
+            return (coordinator, router)
+    }
+    
+    func makeSettingsCoordinatorBox(router: Router) -> (configurator: Coordinator, toPresent: Presentable?) {
+        let coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp())
+        return (coordinator, router)
     }
     
     

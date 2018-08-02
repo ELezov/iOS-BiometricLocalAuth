@@ -8,10 +8,8 @@
 
 import UIKit
 
-final class ModuleFactoryImp:
-    AuthModuleFactory,
-AboutModuleFactory {
-    
+final class ModuleFactoryImp: AuthModuleFactory, AboutModuleFactory, SettingsModuleFactory {
+
     
     // MARK: - AuthModuleFactory
     
@@ -23,8 +21,15 @@ AboutModuleFactory {
         return SuccessViewController.controllerFromStoryboard(.auth)
     }
     
+    
     // MARK: - AboutModuleFactory
     func makeAboutOutput() -> AboutView {
         return  AboutViewController.controllerFromStoryboard(.about)
+    }
+    
+    
+    // MARK: - SettingsModuleFactory
+    func makeSettingsOutput() -> SettingsView {
+        return SettingsViewController.controllerFromStoryboard(.settings)
     }
 }
