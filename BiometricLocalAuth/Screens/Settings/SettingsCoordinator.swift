@@ -11,8 +11,7 @@ import Foundation
 final class SettingsCoordinator: BaseCoordinator, MainCoordinatorOutput {
     
     var finishFlow: (() -> Void)?
-    
-    
+
     private let factory: SettingsModuleFactory
     private let router: Router
     private let isBack: Bool
@@ -33,19 +32,6 @@ final class SettingsCoordinator: BaseCoordinator, MainCoordinatorOutput {
         settingsFlowOutput.onFinish = { [weak self] in
             self?.finishFlow?()
         }
-        
-        if isBack {
-            router.push(settingsFlowOutput.toPresent())
-        } else {
-            router.setRootModule(settingsFlowOutput)
-        }
-       
+        router.setRootModule(settingsFlowOutput)
     }
-//    private func showAbout() {
-//        let aboutFlowOutput = factory.makeAboutOutput()
-//        aboutFlowOutput.onLogOut = { [weak self] in
-//            self?.finishFlow?()
-//        }
-//        router.setRootModule(aboutFlowOutput)
-//    }
 }

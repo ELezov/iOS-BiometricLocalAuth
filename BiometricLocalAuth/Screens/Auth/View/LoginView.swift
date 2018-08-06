@@ -15,6 +15,10 @@ class LoginView: UIView {
         static let topViewHeight: CGFloat = 60.0
         static let bottomViewHeight: CGFloat = 40.0
         static let inputFieldHeight: CGFloat = 50.0
+        static let loginText: String = "Login"
+        static let emailText: String = "email"
+        static let passwordText: String = "password"
+        static let logIn: String = "Log In"
     }
     
     var containerView: UIView = UIView()
@@ -73,7 +77,7 @@ class LoginView: UIView {
         
         let titleLabel = UILabel()
         topView.addSubview(titleLabel)
-        titleLabel.text = "Login"
+        titleLabel.text = Constants.loginText
         titleLabel.textColor = UIColor.white
         titleLabel.backgroundColor = UIColor.clear
         
@@ -86,13 +90,12 @@ class LoginView: UIView {
         containerView.addSubview(mailTextField)
         
         mailTextField.delegate = self
-        mailTextField.placeholder = "email"
+        mailTextField.placeholder = Constants.emailText
         mailTextField.borderStyle = .roundedRect
         mailTextField.backgroundColor = UIColor.white
         mailTextField.keyboardType = .emailAddress
         mailTextField.returnKeyType = .next
         mailTextField.autocapitalizationType = .none
-        
         mailTextField.snp.makeConstraints { (make) in
             make.top.equalTo(topView.snp.bottom).offset(16)
             make.left.equalTo(containerView).offset(8)
@@ -100,20 +103,16 @@ class LoginView: UIView {
             make.height.equalTo(Constants.inputFieldHeight)
         }
         
-        // ---
-        
         containerView.addSubview(passwordTextField)
         
         passwordTextField.delegate = self
-        passwordTextField.placeholder = "password"
+        passwordTextField.placeholder = Constants.passwordText
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.backgroundColor = UIColor.white
         passwordTextField.keyboardType = .emailAddress
         passwordTextField.returnKeyType = .done
         passwordTextField.autocapitalizationType = .none
-        
         passwordTextField.isSecureTextEntry = true
-        
         passwordTextField.snp.makeConstraints { (make) in
             make.top.equalTo(mailTextField.snp.bottom).offset(16)
             make.left.equalTo(mailTextField)
@@ -124,9 +123,7 @@ class LoginView: UIView {
     
     private func setupBottomView() {
         containerView.addSubview(bottomView)
-        
         bottomView.backgroundColor = UIColor.brown
-        
         bottomView.snp.makeConstraints { (make) in
             make.top.equalTo(passwordTextField.snp.bottom).offset(16)
             make.left.equalTo(containerView)
@@ -134,24 +131,19 @@ class LoginView: UIView {
             make.height.equalTo(Constants.bottomViewHeight).priority(750)
             make.bottom.equalTo(containerView)
         }
-        
         bottomView.addSubview(loginButton)
-        
-        loginButton.setTitle("Log In", for: .normal)
+        loginButton.setTitle(Constants.logIn, for: .normal)
         loginButton.setTitleColor(UIColor.black, for: .normal)
-        
         loginButton.backgroundColor = UIColor.white
         loginButton.layer.borderWidth = 2
         loginButton.layer.borderColor = UIColor.black.cgColor
         loginButton.layer.cornerRadius = 8
-        
         loginButton.snp.makeConstraints { (make) in
             make.top.equalTo(bottomView).offset(4)
             make.right.equalTo(bottomView).offset(-4)
             make.bottom.equalTo(bottomView).offset(-4)
             make.width.equalTo(150)
         }
-        
         loginButton.rx.tap
             .asObservable()
             .bind { [weak self] in
@@ -177,38 +169,32 @@ class LoginView: UIView {
         if isAnimating {
             return
         }
-        
         mailTextField.snp.remakeConstraints { (make) in
             make.top.equalTo(containerView.snp.bottom).offset(400)
             make.left.equalTo(containerView).offset(8)
             make.right.equalTo(containerView).offset(-8)
             make.height.equalTo(Constants.inputFieldHeight)
         }
-        
         passwordTextField.snp.remakeConstraints { (make) in
             make.top.equalTo(containerView.snp.bottom).offset(400)
             make.left.equalTo(mailTextField)
             make.right.equalTo(mailTextField)
             make.height.equalTo(Constants.inputFieldHeight)
         }
-        
         bottomView.snp.remakeConstraints { (make) in
             make.top.equalTo(containerView.snp.bottom).offset(400)
             make.left.equalTo(containerView)
             make.right.equalTo(containerView)
             make.height.equalTo(Constants.bottomViewHeight).priority(750)
         }
-        
         activityIndicator.snp.updateConstraints { (make) in
             make.centerY.equalTo(containerView)
         }
-        
         self.setNeedsLayout()
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
         })
-        { [weak self] (finished) in
+        { (finished) in
             if finished {
                 DispatchQueue.main.asyncAfter(
                     deadline: DispatchTime.now() + DispatchTimeInterval.seconds(3),
@@ -250,18 +236,16 @@ class LoginView: UIView {
         }
         
         self.setNeedsLayout()
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
-        }) { (finished) in
+        }) { [weak self] (finished) in
             if finished {
-                self.isAnimating = false
+                self?.isAnimating = false
             }
         }
-        
     }
-
 }
+
 
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

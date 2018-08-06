@@ -9,12 +9,10 @@
 import UIKit
 
 final class MainViewController: UITabBarController, UITabBarControllerDelegate, MainView, MainCoordinatorOutput {
+    
     var onItemFlowSelect: ((UINavigationController) -> ())?
-    
     var onAboutFlowSelect: ((UINavigationController) -> ())?
-    
     var onViewDidLoad: ((UINavigationController) -> ())?
-    
     var onFinish: (() -> ())?
     
     var finishFlow: (() -> Void)?
@@ -30,13 +28,10 @@ final class MainViewController: UITabBarController, UITabBarControllerDelegate, 
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         guard let controller = viewControllers?[selectedIndex] as? UINavigationController else { return }
-        
         if selectedIndex == 0 {
             onItemFlowSelect?(controller)
-        }
-        else if selectedIndex == 1 {
+        } else if selectedIndex == 1 {
             onAboutFlowSelect?(controller)
         }
     }
 }
-

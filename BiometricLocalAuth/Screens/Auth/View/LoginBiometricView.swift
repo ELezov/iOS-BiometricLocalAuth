@@ -17,17 +17,15 @@ class LoginBiometricView: UIView {
         static let topViewHeight: CGFloat = 60.0
         static let bottomViewHeight: CGFloat = 40.0
         static let inputFieldHeight: CGFloat = 50.0
+        static let touchIdAuth = "Touch ID Auth"
     }
     
     var buttonAction: ZeroButtonActionBlock?
-    
     var containerView: UIView = UIView()
     var authButton: UIButton = UIButton()
     var topView: UIView = UIView()
     var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    
     var isAnimating = false
-    
     
     init() {
         super.init(frame: CGRect.zero)
@@ -71,7 +69,7 @@ class LoginBiometricView: UIView {
         
         let titleLabel = UILabel()
         topView.addSubview(titleLabel)
-        titleLabel.text = "Touch ID Auth"
+        titleLabel.text = Constants.touchIdAuth
         titleLabel.textColor = UIColor.white
         titleLabel.backgroundColor = UIColor.clear
         
@@ -160,9 +158,9 @@ class LoginBiometricView: UIView {
         
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
-        }) { (finished) in
+        }) { [weak self] (finished) in
             if finished {
-                self.isAnimating = false
+                self?.isAnimating = false
             }
         }
         

@@ -11,6 +11,3 @@ import UIKit
 protocol AboutView: BaseView {
      var onLogOut: (() -> Void)? { get set }
 }
-
-
-

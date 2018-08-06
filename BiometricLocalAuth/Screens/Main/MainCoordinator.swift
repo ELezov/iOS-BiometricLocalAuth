@@ -26,7 +26,7 @@ class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
         mainView.onAboutFlowSelect = runSettingsFlow()
     }
     
-    private func runAboutFlow() -> ((UINavigationController) -> ()) {
+    private func runAboutFlow() -> ((UINavigationController) -> () ) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let itemCoordinator = self.coordinatorFactory.makeAboutCoordinator(navController: navController)
@@ -39,7 +39,7 @@ class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
         }
     }
     
-    private func runSettingsFlow() -> ((UINavigationController) -> ()) {
+    private func runSettingsFlow() -> ((UINavigationController) -> () ) {
         return { navController in
             if navController.viewControllers.isEmpty == true {
                 let settingsCoordinator = self.coordinatorFactory.makeSettingsCoordinator(navController: navController)

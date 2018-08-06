@@ -42,13 +42,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="YKV-st-0gZ">
-                                <rect key="frame" x="127.5" y="283.5" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="5Ge-FD-Dpx"/>
-                                    <constraint firstAttribute="height" constant="120" id="mMa-yb-1si"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDU-YL-t95">
                                 <rect key="frame" x="16" y="595" width="343" height="56"/>
                                 <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,7 +49,7 @@
                                     <constraint firstAttribute="height" constant="56" id="JAk-P9-gar"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <state key="normal" title="Try again">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -66,9 +59,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YKV-st-0gZ" firstAttribute="centerX" secondItem="JWY-yH-cv2" secondAttribute="centerX" id="5Vz-dZ-gLX"/>
                             <constraint firstItem="LDU-YL-t95" firstAttribute="leading" secondItem="JWY-yH-cv2" secondAttribute="leading" constant="16" id="LcC-a1-nm4"/>
-                            <constraint firstItem="YKV-st-0gZ" firstAttribute="centerY" secondItem="JWY-yH-cv2" secondAttribute="centerY" id="eKY-aV-2oC"/>
                             <constraint firstItem="JWY-yH-cv2" firstAttribute="bottom" secondItem="LDU-YL-t95" secondAttribute="bottom" constant="16" id="iEr-vN-dmJ"/>
                             <constraint firstItem="JWY-yH-cv2" firstAttribute="trailing" secondItem="LDU-YL-t95" secondAttribute="trailing" constant="16" id="sSg-U3-XXo"/>
                         </constraints>
@@ -80,7 +71,4 @@
             <point key="canvasLocation" x="-2286" y="-1299"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="success" width="225" height="225"/>
-    </resources>
 </document>

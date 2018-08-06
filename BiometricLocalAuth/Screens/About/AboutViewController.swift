@@ -25,7 +25,6 @@ final class AboutViewController: UIViewController, AboutView {
         titleLabel.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
         }
-        
         titleLabel.text = "This is test app"
         titleLabel.adjustsFontSizeToFitWidth = true
         

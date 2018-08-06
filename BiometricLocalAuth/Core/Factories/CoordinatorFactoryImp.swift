@@ -40,7 +40,7 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         return makeAboutCoordinator(navController: navigationController(nil))
     }
     
-    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput{
+    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput {
         let coordinator = AboutCoordinator(router: router(navController), factory: ModuleFactoryImp())
         return coordinator
     }

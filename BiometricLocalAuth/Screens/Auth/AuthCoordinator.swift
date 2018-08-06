@@ -31,15 +31,12 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginOutput.onCompleteAuth = { [weak self] in
             self?.finishFlow?()
         }
-        
         loginOutput.onLogInSuccess = { [weak self] in
             self?.showLogInSuccess()
         }
-        
         loginOutput.onManualLogIn = { [weak self] in
             self?.showSettings()
         }
-        
         router.setRootModule(loginOutput)
     }
     
@@ -48,11 +45,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         logInSuccessView.onCompleteAuth = { [weak self] in
             self?.finishFlow?()
         }
-        
         logInSuccessView.onContinueButtonTap = { [weak self] in
             self?.router.popModule(animated: true)
         }
-        
         logInSuccessView.onFinish = { [weak self] in
             self?.finishFlow?()
         }
@@ -60,13 +55,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     }
     
     private func showSettings() {
-       //let settingsView = ModuleFactoryImp().makeSettingsOutput()
-    //router.push(settingsView)
-        
         let (coordinator, module) =  coordinatorFactory.makeSettingsCoordinatorBox(isBack: true)
         coordinator.finishFlow = {[weak self, weak coordinator] in
             self?.router.dismissModule()
-            //self?.start()
             self?.removeDependency(coordinator)
         }
         addDependency(coordinator)

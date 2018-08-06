@@ -10,6 +10,7 @@ target 'BiometricLocalAuth' do
   pod 'SnapKit'
   pod 'SwiftGen'
   pod 'SwiftLint'
+  pod 'lottie-ios'
   # Pods for BiometricLocalAuth
 
 end

@@ -25,8 +25,6 @@ final class AboutCoordinator: BaseCoordinator, MainCoordinatorOutput {
         showAbout()
     }
     
-    //MARK: - Run current flow's controllers
-    
     private func showAbout() {
         let aboutFlowOutput = factory.makeAboutOutput()
         aboutFlowOutput.onLogOut = { [weak self] in
