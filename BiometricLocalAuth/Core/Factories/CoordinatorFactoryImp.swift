@@ -10,12 +10,6 @@ import UIKit
 
 final class CoordinatorFactoryImp: CoordinatorFactory {
     
-    func makeMainCoordinator() -> (configurator: Coordinator & MainCoordinatorOutput, toPresent: Presentable?) {
-        let controller = MainViewController.controllerFromStoryboard(.main)
-        let coordinator = MainCoordinator(mainView: controller, coordinatorFactory: CoordinatorFactoryImp())
-        return (coordinator, controller)
-    }
-    
     func makeAuthCoordinatorBox(router: Router) -> Coordinator & AuthCoordinatorOutput {
         let coordinator = AuthCoordinator(
             router: router,
@@ -34,37 +28,6 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
             factory: ModuleFactoryImp(),
             coordinatorFactory: CoordinatorFactoryImp())
         return coordinator
-    }
-    
-    func makeAboutCoordinator() -> Coordinator & MainCoordinatorOutput {
-        return makeAboutCoordinator(navController: navigationController(nil))
-    }
-    
-    func makeAboutCoordinator(navController: UINavigationController?) -> Coordinator & MainCoordinatorOutput {
-        let coordinator = AboutCoordinator(router: router(navController), factory: ModuleFactoryImp())
-        return coordinator
-    }
-    
-    func makeSettingsCoordinator(navController: UINavigationController?) -> Coordinator {
-        let coordinator = SettingsCoordinator(router: router(navController), factory: ModuleFactoryImp())
-        return coordinator
-    }
-    
-    func makeSettingsCoordinatorBox(isBack: Bool = false) ->
-        (configurator: Coordinator & MainCoordinatorOutput,
-        toPresent: Presentable?) {
-            
-            return makeSettingsCoordinatorBox(navController: navigationController(nil),
-                                              isBack: isBack)
-    }
-    func makeSettingsCoordinatorBox(navController: UINavigationController?,
-                                    isBack: Bool = false) ->
-        (configurator: Coordinator & MainCoordinatorOutput,
-        toPresent: Presentable?) {
-            
-            let router = self.router(navController)
-            let coordinator = SettingsCoordinator(router: router, factory: ModuleFactoryImp(), isBack: isBack)
-            return (coordinator, router)
     }
     
     // MARK: - Private

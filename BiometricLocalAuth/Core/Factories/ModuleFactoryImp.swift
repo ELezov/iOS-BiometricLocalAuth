@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ModuleFactoryImp: AuthModuleFactory, AboutModuleFactory, SettingsModuleFactory {
+final class ModuleFactoryImp: AuthModuleFactory {
 
     
     // MARK: - AuthModuleFactory
@@ -19,17 +19,5 @@ final class ModuleFactoryImp: AuthModuleFactory, AboutModuleFactory, SettingsMod
     
     func makeLogInSuccessOutput() -> LogInSuccessView {
         return SuccessViewController.controllerFromStoryboard(.auth)
-    }
-    
-    
-    // MARK: - AboutModuleFactory
-    func makeAboutOutput() -> AboutView {
-        return  AboutViewController.controllerFromStoryboard(.about)
-    }
-    
-    
-    // MARK: - SettingsModuleFactory
-    func makeSettingsOutput() -> SettingsView {
-        return SettingsViewController.controllerFromStoryboard(.settings)
     }
 }

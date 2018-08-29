@@ -12,11 +12,3 @@ protocol AuthModuleFactory {
     func makeAuthOutput() -> AuthView
     func makeLogInSuccessOutput() -> LogInSuccessView
 }
-
-protocol AboutModuleFactory {
-    func makeAboutOutput() -> AboutView
-}
-
-protocol SettingsModuleFactory {
-    func makeSettingsOutput() -> SettingsView
-}

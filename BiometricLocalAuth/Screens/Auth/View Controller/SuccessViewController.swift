@@ -47,6 +47,6 @@ class SuccessViewController: UIViewController, LogInSuccessView {
     }
 
     @IBAction func actionButtonTapped(_ sender: Any) {
-        onFinish?()
+        onCompleteAuth?()
     }
 }

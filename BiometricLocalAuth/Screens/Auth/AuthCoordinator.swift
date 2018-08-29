@@ -34,9 +34,6 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginOutput.onLogInSuccess = { [weak self] in
             self?.showLogInSuccess()
         }
-        loginOutput.onManualLogIn = { [weak self] in
-            self?.showSettings()
-        }
         router.setRootModule(loginOutput)
     }
     
@@ -54,16 +51,6 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         router.push(logInSuccessView)
     }
     
-    private func showSettings() {
-        let (coordinator, module) =  coordinatorFactory.makeSettingsCoordinatorBox(isBack: true)
-        coordinator.finishFlow = {[weak self, weak coordinator] in
-            self?.router.dismissModule()
-            self?.removeDependency(coordinator)
-        }
-        addDependency(coordinator)
-        router.present(module, animated: true)
-        coordinator.start()
-    }
     
     
 }
