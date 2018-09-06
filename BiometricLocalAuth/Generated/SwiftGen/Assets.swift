@@ -47,6 +47,7 @@ internal enum Asset {
   internal static let finger = ImageAsset(name: "finger")
   internal static let fingerprintSuccess = ImageAsset(name: "fingerprint_success")
   internal static let fingerprintWrong = ImageAsset(name: "fingerprint_wrong")
+  internal static let logo = ImageAsset(name: "logo")
   internal static let success = ImageAsset(name: "success")
   internal static let successful = ImageAsset(name: "successful")
 
@@ -57,6 +58,7 @@ internal enum Asset {
     finger,
     fingerprintSuccess,
     fingerprintWrong,
+    logo,
     success,
     successful,
   ]

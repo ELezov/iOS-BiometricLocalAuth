@@ -12,6 +12,7 @@
 		334F0F9F20F281410010D4DE /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F0F9E20F281410010D4DE /* Strings.swift */; };
 		33CD2E7B20EC143F006C0E4E /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD2E7A20EC143F006C0E4E /* UserDefaultsHelper.swift */; };
 		982DD20D214189E800F4D544 /* Switch_States.json in Resources */ = {isa = PBXBuildFile; fileRef = 982DD20C214189E800F4D544 /* Switch_States.json */; };
+		982DD20F2141919000F4D544 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982DD20E2141919000F4D544 /* TestViewController.swift */; };
 		986B89282118AD020063FA7C /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 986B89272118AD020063FA7C /* success.json */; };
 		988B895820ED3312009F04BB /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895720ED3312009F04BB /* AlertHelper.swift */; };
 		988B895A20ED3582009F04BB /* URLSchemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895920ED3582009F04BB /* URLSchemeHelper.swift */; };
@@ -72,6 +73,7 @@
 		7C2AC3FEBC329BA52C40785E /* Pods-BiometricLocalAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		8B4789B76864B323893C5A44 /* Pods_BiometricLocalAuthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricLocalAuthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		982DD20C214189E800F4D544 /* Switch_States.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Switch_States.json; sourceTree = "<group>"; };
+		982DD20E2141919000F4D544 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		986B89272118AD020063FA7C /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		988B895720ED3312009F04BB /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		988B895920ED3582009F04BB /* URLSchemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHelper.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				98EC525B2110D59D00AD84D1 /* AboutCoordinator.swift */,
 				98EC525D2110D60800AD84D1 /* AboutView.swift */,
 				98EC525F2110D68F00AD84D1 /* AboutViewController.swift */,
+				982DD20E2141919000F4D544 /* TestViewController.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -504,6 +508,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -566,6 +571,7 @@
 				98EC52382110C2F800AD84D1 /* Router.swift in Sources */,
 				98EC524A2110C92500AD84D1 /* UIViewController + Extension.swift in Sources */,
 				98FC09352112126900A6F04C /* AuthCoordinatorOutput.swift in Sources */,
+				982DD20F2141919000F4D544 /* TestViewController.swift in Sources */,
 				98EC52322110C1B100AD84D1 /* CoordinatorFactoryImp.swift in Sources */,
 				98EC52522110CE6100AD84D1 /* MainCoordinator.swift in Sources */,
 				98EC52552110CFF500AD84D1 /* MainView.swift in Sources */,

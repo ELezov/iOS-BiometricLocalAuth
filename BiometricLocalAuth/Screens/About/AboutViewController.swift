@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Hero
 
 final class AboutViewController: UIViewController, AboutView {
     
     var onLogOut: (() -> Void)?
+    
+    var buttonImage: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,5 +48,32 @@ final class AboutViewController: UIViewController, AboutView {
             .subscribe { [weak self] (event) in
                 self?.onLogOut?()
         }
+        
+        buttonImage = UIButton()
+        buttonImage.setImage(Asset.logo.image, for: .normal)
+        view.addSubview(buttonImage)
+        buttonImage.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(100)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(150)
+            make.width.equalTo(150)
+        }
+        buttonImage.rx.tap
+            .subscribe { [weak self] (event) in
+                let vc = TestViewController.controllerFromStoryboard(.about)
+                self?.buttonImage.hero.id = "Test"
+                vc.hero.isEnabled = true
+                vc.hero.modalAnimationType = .none
+                vc.button.hero.id = "Test"
+                vc.button.setImage(Asset.logo.image, for: .normal)
+                vc.button.contentMode = .scaleAspectFit
+                self?.present(vc, animated: true, completion: nil)
+        }
+        
+        
+        
+        
+        
+        
     }
 }
