@@ -11,6 +11,7 @@
 		334F0F9A20F280380010D4DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 334F0F9C20F280380010D4DE /* Localizable.strings */; };
 		334F0F9F20F281410010D4DE /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F0F9E20F281410010D4DE /* Strings.swift */; };
 		33CD2E7B20EC143F006C0E4E /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD2E7A20EC143F006C0E4E /* UserDefaultsHelper.swift */; };
+		982DD20D214189E800F4D544 /* Switch_States.json in Resources */ = {isa = PBXBuildFile; fileRef = 982DD20C214189E800F4D544 /* Switch_States.json */; };
 		986B89282118AD020063FA7C /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 986B89272118AD020063FA7C /* success.json */; };
 		988B895820ED3312009F04BB /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895720ED3312009F04BB /* AlertHelper.swift */; };
 		988B895A20ED3582009F04BB /* URLSchemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B895920ED3582009F04BB /* URLSchemeHelper.swift */; };
@@ -70,6 +71,7 @@
 		6C2113A8598C42B36F2A04C9 /* Pods-BiometricLocalAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuth.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth.release.xcconfig"; sourceTree = "<group>"; };
 		7C2AC3FEBC329BA52C40785E /* Pods-BiometricLocalAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricLocalAuth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricLocalAuth/Pods-BiometricLocalAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		8B4789B76864B323893C5A44 /* Pods_BiometricLocalAuthTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricLocalAuthTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		982DD20C214189E800F4D544 /* Switch_States.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Switch_States.json; sourceTree = "<group>"; };
 		986B89272118AD020063FA7C /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		988B895720ED3312009F04BB /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		988B895920ED3582009F04BB /* URLSchemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHelper.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 		98FC09412112231300A6F04C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				982DD20C214189E800F4D544 /* Switch_States.json */,
 				986B89272118AD020063FA7C /* success.json */,
 				98FC09422112232D00A6F04C /* techno_penguin.json */,
 			);
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98FC09372112186A00A6F04C /* Auth.storyboard in Resources */,
+				982DD20D214189E800F4D544 /* Switch_States.json in Resources */,
 				98F9DB6220C91BBA007EA879 /* LaunchScreen.storyboard in Resources */,
 				986B89282118AD020063FA7C /* success.json in Resources */,
 				98EC52622110D70700AD84D1 /* About.storyboard in Resources */,
