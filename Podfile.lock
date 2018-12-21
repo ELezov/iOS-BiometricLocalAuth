@@ -21,7 +21,7 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - lottie-ios
     - MarqueeLabel
     - NotificationBannerSwift
@@ -43,4 +43,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0957dfa2dae585288a9886108487c1941ed90da8
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
