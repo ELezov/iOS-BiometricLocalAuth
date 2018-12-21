@@ -11,8 +11,8 @@ import UIKit
 
 class URLSchemeHelper {
     
-    class var settingURL:URL? {
-        return URL(string : "App-Prefs:")
+    class var settingURL: URL? {
+        return URL(string: "App-Prefs:")
     }
     
     static func showDeviceSettings() {

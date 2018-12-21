@@ -6,6 +6,12 @@
   Copyright © 2018 Eugene Lezov. All rights reserved.
 */
 
+"auth.login" = "Login";
+"auth.mail" = "email";
+"auth.password" = "password";
+"auth.signin" = "Log In";
+"auth.biometric" = "Biometric Auth";
+
 "auth.failed" = "Auth Failed";
 "auth.biometric.changed" = "You biometric data was changed";
 "auth.carefull" = "Be carefull";

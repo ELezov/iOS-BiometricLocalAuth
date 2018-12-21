@@ -17,7 +17,6 @@
 		98A5608B2108CB0500C93C2F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5608A2108CB0500C93C2F /* LoginView.swift */; };
 		98A5608D2108E9C100C93C2F /* LoginBiometricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */; };
 		98B4E64F20EA7E3800B6BAC1 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */; };
-		98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */; };
 		98EC52272110BECF00AD84D1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EC52262110BECF00AD84D1 /* Coordinator.swift */; };
 		98EC52292110BF0700AD84D1 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EC52282110BF0700AD84D1 /* Presentable.swift */; };
 		98EC522C2110BFFF00AD84D1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EC522B2110BFFF00AD84D1 /* BaseCoordinator.swift */; };
@@ -64,7 +63,6 @@
 		98A5608A2108CB0500C93C2F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBiometricView.swift; sourceTree = "<group>"; };
 		98B4E64E20EA7E3800B6BAC1 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowBuilder.swift; sourceTree = "<group>"; };
 		98EC52262110BECF00AD84D1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		98EC52282110BF0700AD84D1 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		98EC522B2110BFFF00AD84D1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -137,14 +135,6 @@
 				98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		98B4E65120EA81E400B6BAC1 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				98B4E65220EA81F800B6BAC1 /* WindowBuilder.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		98EC52242110BE7100AD84D1 /* Application */ = {
@@ -242,7 +232,6 @@
 				98EC522A2110BFEB00AD84D1 /* Core */,
 				98EC52242110BE7100AD84D1 /* Application */,
 				334F0F9420F26EC20010D4DE /* Generated */,
-				98B4E65120EA81E400B6BAC1 /* Helper */,
 				98F9DB8A20C91F1D007EA879 /* Screens */,
 				98F9DB5E20C91BBA007EA879 /* Assets.xcassets */,
 				98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */,
@@ -492,7 +481,6 @@
 				98EC523C2110C40000AD84D1 /* AuthCoordinator.swift in Sources */,
 				334F0F9F20F281410010D4DE /* Strings.swift in Sources */,
 				98EC523E2110C44800AD84D1 /* ModuleFactory.swift in Sources */,
-				98B4E65320EA81F800B6BAC1 /* WindowBuilder.swift in Sources */,
 				98EC52342110C22000AD84D1 /* ApplicationCoordinator.swift in Sources */,
 				98EC52382110C2F800AD84D1 /* Router.swift in Sources */,
 				98EC524A2110C92500AD84D1 /* UIViewController + Extension.swift in Sources */,

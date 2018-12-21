@@ -8,6 +8,7 @@
 
 import Foundation
 
+//swiftlint:disable force_unwrapping
 extension NSObject {
     
     class var nameOfClass: String {

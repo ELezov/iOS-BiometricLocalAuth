@@ -17,7 +17,7 @@ class LoginBiometricView: UIView {
         static let topViewHeight: CGFloat = 60.0
         static let bottomViewHeight: CGFloat = 40.0
         static let inputFieldHeight: CGFloat = 50.0
-        static let touchIdAuth = "Touch ID Auth"
+        static let touchIdAuth = L10n.Auth.biometric
     }
     
     var buttonAction: ZeroButtonActionBlock?
@@ -74,14 +74,14 @@ class LoginBiometricView: UIView {
         titleLabel.backgroundColor = UIColor.clear
         
         titleLabel.snp.makeConstraints { (make) in
-            make.edges.equalTo(topView).inset(UIEdgeInsetsMake(0.0, 16.0, 0.0, 0.0))
+            make.edges.equalTo(topView).inset(UIEdgeInsets(top: 0.0,
+                                                           left: 16.0,
+                                                           bottom: 0.0,
+                                                           right: 16.0))
         }
     }
     
-   
-    
     private func setupAuthButton() {
-        
         containerView.addSubview(authButton)
         
         authButton.setImage(Asset.finger.image, for: .normal)
@@ -92,7 +92,7 @@ class LoginBiometricView: UIView {
             make.width.equalTo(authButton.snp.height)
         }
         
-        authButton.rx.tap
+        _ = authButton.rx.tap
             .asObservable()
             .bind { [weak self] in
                 self?.connect()
@@ -142,7 +142,6 @@ class LoginBiometricView: UIView {
     }
     
     func resetLoginBiometricView() {
-        
         authButton.snp.remakeConstraints { (make) in
             make.top.equalTo(topView.snp.bottom).offset(16)
             make.centerX.equalTo(containerView)
@@ -158,14 +157,10 @@ class LoginBiometricView: UIView {
         
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
-        }) { [weak self] (finished) in
+        }, completion: { [weak self] finished in
             if finished {
                 self?.isAnimating = false
             }
-        }
-        
+        })
     }
-    
-    
-
 }

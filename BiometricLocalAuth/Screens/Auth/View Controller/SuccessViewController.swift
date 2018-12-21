@@ -46,7 +46,7 @@ class SuccessViewController: UIViewController, LogInSuccessView {
         animationView.contentMode = .scaleAspectFill
     }
 
-    @IBAction func actionButtonTapped(_ sender: Any) {
+    @IBAction private func actionButtonTapped(_ sender: Any) {
         onCompleteAuth?()
     }
 }

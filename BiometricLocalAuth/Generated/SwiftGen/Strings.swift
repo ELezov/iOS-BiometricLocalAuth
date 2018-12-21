@@ -9,10 +9,20 @@ import Foundation
 internal enum L10n {
 
   internal enum Auth {
+    /// Biometric Auth
+    internal static let biometric = L10n.tr("Localizable", "auth.biometric")
     /// Be carefull
     internal static let carefull = L10n.tr("Localizable", "auth.carefull")
     /// Auth Failed
     internal static let failed = L10n.tr("Localizable", "auth.failed")
+    /// Login
+    internal static let login = L10n.tr("Localizable", "auth.login")
+    /// email
+    internal static let mail = L10n.tr("Localizable", "auth.mail")
+    /// password
+    internal static let password = L10n.tr("Localizable", "auth.password")
+    /// Log In
+    internal static let signin = L10n.tr("Localizable", "auth.signin")
 
     internal enum Biometric {
       /// You biometric data was changed

@@ -30,7 +30,7 @@ class AuthViewController: UIViewController, AuthView {
     let loginView: LoginView = LoginView()
     let loginBiometricView = LoginBiometricView()
 
-    @IBAction func tapGestureDetected(_ sender: Any) {
+    @IBAction private func tapGestureDetected(_ sender: Any) {
         self.view.endEditing(true)
     }
     

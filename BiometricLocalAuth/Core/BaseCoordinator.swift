@@ -8,12 +8,13 @@
 
 import Foundation
 
+//swiftlint:disable for_where
 class BaseCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
     
     func start() {
-        start()
+        self.start()
     }
     
     // add only unique object

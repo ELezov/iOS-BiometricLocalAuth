@@ -10,7 +10,6 @@ import UIKit
 
 final class ModuleFactoryImp: AuthModuleFactory {
 
-    
     // MARK: - AuthModuleFactory
     
     func makeAuthOutput() -> AuthView {

@@ -39,11 +39,11 @@ final class RouterImp: NSObject, Router {
         rootController?.dismiss(animated: animated, completion: completion)
     }
     
-    func push(_ module: Presentable?)  {
+    func push(_ module: Presentable?) {
         push(module, animated: true)
     }
     
-    func push(_ module: Presentable?, animated: Bool)  {
+    func push(_ module: Presentable?, animated: Bool) {
         push(module, animated: animated, completion: nil)
     }
     

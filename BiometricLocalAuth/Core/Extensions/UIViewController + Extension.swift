@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     
     private class func instantiateControllerInStoryboard<T: UIViewController>(_ storyboard: UIStoryboard,
-                                                                      identifier: String) -> T {
+                                                                              identifier: String) -> T {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? T else {
             fatalError("View controller с идентификатором \(identifier) не найден")
         }

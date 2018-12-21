@@ -15,10 +15,10 @@ class LoginView: UIView {
         static let topViewHeight: CGFloat = 60.0
         static let bottomViewHeight: CGFloat = 40.0
         static let inputFieldHeight: CGFloat = 50.0
-        static let loginText: String = "Login"
-        static let emailText: String = "email"
-        static let passwordText: String = "password"
-        static let logIn: String = "Log In"
+        static let loginText: String = L10n.Auth.login
+        static let emailText: String = L10n.Auth.mail
+        static let passwordText: String = L10n.Auth.password
+        static let logIn: String = L10n.Auth.signin
     }
     
     var containerView: UIView = UIView()
@@ -82,7 +82,7 @@ class LoginView: UIView {
         titleLabel.backgroundColor = UIColor.clear
         
         titleLabel.snp.makeConstraints { (make) in
-            make.edges.equalTo(topView).inset(UIEdgeInsetsMake(0.0, 16.0, 0.0, 0.0))
+            make.edges.equalTo(topView).inset(UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0))
         }
     }
     
@@ -132,6 +132,7 @@ class LoginView: UIView {
             make.bottom.equalTo(containerView)
         }
         bottomView.addSubview(loginButton)
+        
         loginButton.setTitle(Constants.logIn, for: .normal)
         loginButton.setTitleColor(UIColor.black, for: .normal)
         loginButton.backgroundColor = UIColor.white
@@ -144,7 +145,8 @@ class LoginView: UIView {
             make.bottom.equalTo(bottomView).offset(-4)
             make.width.equalTo(150)
         }
-        loginButton.rx.tap
+        
+        _ = loginButton.rx.tap
             .asObservable()
             .bind { [weak self] in
                 self?.connect()
@@ -193,8 +195,7 @@ class LoginView: UIView {
         self.setNeedsLayout()
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
-        })
-        { (finished) in
+        }, completion: { finished in
             if finished {
                 DispatchQueue.main.asyncAfter(
                     deadline: DispatchTime.now() + DispatchTimeInterval.seconds(3),
@@ -203,7 +204,7 @@ class LoginView: UIView {
                         self?.onAuthButtonTapped?()
                 })
             }
-        }
+        }) 
         
         isAnimating = true
     }
@@ -238,11 +239,11 @@ class LoginView: UIView {
         self.setNeedsLayout()
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
-        }) { [weak self] (finished) in
+        }, completion: { [weak self] finished in
             if finished {
                 self?.isAnimating = false
             }
-        }
+        })
     }
 }
 
