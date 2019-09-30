@@ -111,6 +111,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		333502EA2342ABC60039A65A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				98F9DB5720C91BB9007EA879 /* AppDelegate.swift */,
+				98EC52332110C22000AD84D1 /* ApplicationCoordinator.swift */,
+				98F9DB8A20C91F1D007EA879 /* Screens */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		333502EB2342ABDC0039A65A /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				986B89272118AD020063FA7C /* success.json */,
+				98FC09422112232D00A6F04C /* techno_penguin.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		334F0F9420F26EC20010D4DE /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,15 +154,6 @@
 				98A5608C2108E9C100C93C2F /* LoginBiometricView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		98EC52242110BE7100AD84D1 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				98F9DB5720C91BB9007EA879 /* AppDelegate.swift */,
-				98EC52332110C22000AD84D1 /* ApplicationCoordinator.swift */,
-			);
-			path = Application;
 			sourceTree = "<group>";
 		};
 		98EC52252110BEBE00AD84D1 /* Protocols */ = {
@@ -228,15 +238,10 @@
 		98F9DB5620C91BB9007EA879 /* BiometricLocalAuth */ = {
 			isa = PBXGroup;
 			children = (
+				333502EA2342ABC60039A65A /* App */,
 				98FC09412112231300A6F04C /* Resources */,
 				98EC522A2110BFEB00AD84D1 /* Core */,
-				98EC52242110BE7100AD84D1 /* Application */,
 				334F0F9420F26EC20010D4DE /* Generated */,
-				98F9DB8A20C91F1D007EA879 /* Screens */,
-				98F9DB5E20C91BBA007EA879 /* Assets.xcassets */,
-				98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */,
-				98F9DB6320C91BBA007EA879 /* Info.plist */,
-				334F0F9C20F280380010D4DE /* Localizable.strings */,
 			);
 			path = BiometricLocalAuth;
 			sourceTree = "<group>";
@@ -298,8 +303,11 @@
 		98FC09412112231300A6F04C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				986B89272118AD020063FA7C /* success.json */,
-				98FC09422112232D00A6F04C /* techno_penguin.json */,
+				98F9DB5E20C91BBA007EA879 /* Assets.xcassets */,
+				98F9DB6020C91BBA007EA879 /* LaunchScreen.storyboard */,
+				98F9DB6320C91BBA007EA879 /* Info.plist */,
+				334F0F9C20F280380010D4DE /* Localizable.strings */,
+				333502EB2342ABDC0039A65A /* Lottie */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -656,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FX7X5MR74;
-				INFOPLIST_FILE = BiometricLocalAuth/Info.plist;
+				INFOPLIST_FILE = BiometricLocalAuth/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kode.BiometricLocalAuth;
@@ -673,7 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FX7X5MR74;
-				INFOPLIST_FILE = BiometricLocalAuth/Info.plist;
+				INFOPLIST_FILE = BiometricLocalAuth/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kode.BiometricLocalAuth;
