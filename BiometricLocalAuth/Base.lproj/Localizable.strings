@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  BiometricLocalAuth
+
+  Created by Eugene Lezov on 08.07.18.
+  Copyright © 2018 Eugene Lezov. All rights reserved.
+*/
+
+"auth.login" = "Login";
+"auth.mail" = "email";
+"auth.password" = "password";
+"auth.signin" = "Log In";
+"auth.biometric" = "Biometric Auth";
+
+"auth.failed" = "Auth Failed";
+"auth.biometric.changed" = "You biometric data was changed";
+"auth.carefull" = "Be carefull";
+// BIOMETRY, Touch/Face ID
+"biometry.notAvailable" = "Authentication could not start because the device does not support biometric authentication.";
+"biometry.lockout" = "Authentication could not continue because the user has been locked out of biometric authentication, due to failing authentication too many times.";
+"biometry.notEnrolled" = "Authentication could not start because the user has not enrolled in biometric authentication.";
+"touchId.lockout" = "Too many failed attempts.";
+"touchId.notAvailable" = "TouchID is not available on the device";
+"touchId.notEnrolled" = "TouchID is not enrolled on the device";
+"biometry.unknown"= "Did not find error code on LAError object";
